@@ -1,6 +1,8 @@
 import React from 'react';
 import { MdOutlineEmojiPeople } from "react-icons/md";
 import { AiOutlineRight } from "react-icons/ai";
+import { BsCheck2Circle } from "react-icons/bs";
+import { PiPencilSimpleLineBold } from "react-icons/pi";
 /** @jsxImportSource @emotion/react */
 import * as S from "./Style";
 
@@ -17,10 +19,11 @@ function Profile(props) {
                 </div>
                 <div css={S.SButtonContainer}>
                     <div css={S.SReviewBox}>
-                        
+                        <PiPencilSimpleLineBold css={S.SReviewIcon}/>
                         <button css={S.SReview}>리뷰 쓰기</button>
                     </div>
                     <div css={S.SMissionBox}>
+                        <BsCheck2Circle css={S.SMissionIcon}/>
                         <button css={S.SMission}>미션</button>
                     </div>
                 </div>

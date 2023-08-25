@@ -32,6 +32,7 @@ export const SProfileImg = css`
     border: 2px solid white;
     background-color: white;
     border-radius: 50%;
+    cursor: pointer;
 `;
 
 export const SLoginContainer = css`
@@ -40,6 +41,7 @@ export const SLoginContainer = css`
     align-items: center;
     background-color: transparent;
     border: none;
+    cursor: pointer;
 `;
 
 
@@ -69,19 +71,19 @@ export const SReviewBox = css`
     height: 38px;
     background-color: rgb(12, 197, 164);
     border-radius: 8px;
+    cursor: pointer;
 `;
 
 export const SReview = css`
-    display: flex;
-    align-items: center;
     position: absolute;
     transform: translateX(-50%);
-    left: 60%;
+    left: 55%;
     border: none;
     font-size: 15px;
     font-weight: 700;
     color: white;
     background-color: transparent;
+    cursor: pointer;
     `;
 
 export const SMissionBox = css`
@@ -93,11 +95,10 @@ export const SMissionBox = css`
     height: 38px;
     background-color: rgb(12, 197, 164);
     border-radius: 8px;
+    cursor: pointer;
 `;
 
 export const SMission = css`
-    display: flex;
-    align-items: center;
     position: absolute;
     transform: translateX(-50%);
     left: 60%;
@@ -106,9 +107,30 @@ export const SMission = css`
     font-weight: 700;
     color: white;
     background-color: transparent;
+    cursor: pointer;
+`;
+
+export const SMissionIcon = css`
+    position: absolute;
+    transform: translateX(-50%);
+    left: 33%;
+    * {
+        color: white;
+    }
+    `;
+
+export const SReviewIcon = css`
+    position: absolute;
+    transform: translateX(-50%);
+    left: 36%;
+    * {
+        color: white;
+        background-color: white;
+    }
 `;
 
 export const SButtonContainer = css`
     display: flex;
     margin-top: 15px;
 `;
+
