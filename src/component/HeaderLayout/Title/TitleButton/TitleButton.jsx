@@ -1,17 +1,26 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom'; // useLocation을 불러옵니다.
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { useRecoilState } from 'recoil';
 import { selectedButtonNameState } from '../../../../stores/SelectedButtonNameState';
 
-function TitleButton({ name }) {
+function TitleButton({ name, path }) {
     const [selectedButtonName, setSelectedButtonName] = useRecoilState(selectedButtonNameState);
+    const location = useLocation();
+
+    React.useEffect(() => {
+        const currentPath = location.pathname;
+        if (currentPath === path) {
+            setSelectedButtonName(name);
+        }
+    }, [location.pathname, path, setSelectedButtonName]);
 
     const handleButtonClick = () => {
         setSelectedButtonName(name);
     };
 
-    const isSelected = selectedButtonName === name || (!selectedButtonName && name === '피드');
+    const isSelected = selectedButtonName === name;
 
     const buttonStyle = css`
         position: relative;
@@ -41,7 +50,7 @@ function TitleButton({ name }) {
     const combinedStyles = [buttonStyle, selectedStyle];
 
     return (
-        <button css={combinedStyles} onClick={handleButtonClick}>
+        <button to={path} css={combinedStyles} onClick={handleButtonClick}>
             {name}
         </button>
     );
