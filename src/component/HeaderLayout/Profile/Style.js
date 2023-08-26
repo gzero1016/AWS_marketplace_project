@@ -9,6 +9,25 @@ export const SLayout = css`
     background-color:rgb(6, 180, 149);
 `;
 
+export const SHeaderLayout = css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+    width: 100%;
+    height: 51px;
+    background-color:rgb(6, 180, 149);
+`;
+
+export const SHeader = css`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 375px;
+    height: 51px;
+`;
+
 export const SProfileMainContainer = css`
     flex-direction: column;
     align-items: center;

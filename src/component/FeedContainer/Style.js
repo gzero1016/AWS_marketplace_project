@@ -69,17 +69,6 @@ export const SButtonContainer = css`
     align-items: center;
 `;
 
-export const SAllButton = css`
-    padding: 0px 13px;
-    font-size: 15px;
-    height: 42px;
-    font-weight: 500;
-    box-shadow: (0, 0, 0, 0.06) 0px 2px 6px 0px;
-    background-color: white;
-    border: none;
-    border-radius: 5px;
-`;
-
 export const SAllButtonBox = css`
     padding: 6px 0px 6px 20px;
 `;
@@ -92,6 +81,18 @@ export const SAreasButtonBox = css`
     padding: 6px 20px 6px 8px;
 `;
 
+export const SAllButton = css`
+    padding: 0px 13px;
+    font-size: 15px;
+    height: 42px;
+    font-weight: 500;
+    box-shadow: (0, 0, 0, 0.06) 0px 2px 6px 0px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    `;
+
 export const SSelectedButton = css`
     padding: 0px 13px;
     font-size: 15px;
@@ -102,4 +103,5 @@ export const SSelectedButton = css`
     border: none;
     border-radius: 5px;
     color: white;
+    cursor: pointer;
 `;

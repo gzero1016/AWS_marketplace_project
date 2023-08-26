@@ -5,6 +5,12 @@ import { TbCurrentLocation } from "react-icons/tb";
 import FeedButton from './FeedButton/FeedButton';
 
 function FeedContainer(props) {
+    const [selectedButton, setSelectedButton] = useState('전체'); // 초기값으로 '전체' 버튼을 선택
+
+    const handleButtonClick = (buttonName) => {
+        setSelectedButton(buttonName); // 선택한 버튼 이름을 상태에 저장
+    };
+
     return (
         <div css={S.SLayout}>
             <div css={S.SHeaderLayout}>
@@ -21,13 +27,16 @@ function FeedContainer(props) {
                     <div css={S.SFeedMainContainer}>
                         <div css={S.SButtonContainer}>
                             <div css={S.SAllButtonBox}>
-                                <button css={S.SAllButton}>전체</button>
+                                <button css={selectedButton === '전체' ? S.SSelectedButton : S.SAllButton} onClick={() => handleButtonClick('전체')}>
+                                    전체</button>
                             </div>
                             <div css={S.SFollowingButtonBox}>
-                                <button css={S.SAllButton}>팔로잉</button>
+                                <button css={selectedButton === '팔로잉' ? S.SSelectedButton : S.SAllButton} onClick={() => handleButtonClick('팔로잉')}>
+                                    팔로잉</button>
                             </div>
                             <div css={S.SAreasButtonBox}>
-                                <button css={S.SAllButton}>+ 관심지역</button>
+                                <button css={selectedButton === '+ 관심지역' ? S.SSelectedButton : S.SAllButton} onClick={() => handleButtonClick('+ 관심지역')}>
+                                    + 관심지역</button>
                             </div>
                         </div>
                         <button css={S.SCurrnetBox}>
