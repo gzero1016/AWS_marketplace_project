@@ -1,11 +1,11 @@
 import React from 'react';
 /** @jsxImportSource @emotion/react */
-import * as S from "./Style";
+import * as S from "../Style";
 
 function TimeLineContainer(props) {
     return (
         <div css={S.SLayout}>
-            <div css={S.SContainer}>
+            <div css={S.SContainer} className='TimeLine'>
                 <p css={S.SIcon}>🚩</p>
                 <div css={S.FirstText}>
                     <strong>영수증/카드내역 인증, 예약, 주문</strong>

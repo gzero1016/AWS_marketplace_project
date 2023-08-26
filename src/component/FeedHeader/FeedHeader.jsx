@@ -4,10 +4,10 @@ import * as S from "./Style";
 import { TbCurrentLocation } from "react-icons/tb";
 
 function FeedHeader(props) {
-    const [selectedButton, setSelectedButton] = useState('전체'); // 초기값으로 '전체' 버튼을 선택
+    const [selectedButton, setSelectedButton] = useState('전체');
 
     const handleButtonClick = (buttonName) => {
-        setSelectedButton(buttonName); // 선택한 버튼 이름을 상태에 저장
+        setSelectedButton(buttonName);
     };
 
     return (

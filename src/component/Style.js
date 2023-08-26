@@ -11,10 +11,18 @@ export const SContainer = css`
     text-align: center;
     padding: 40px 30px 30px 34px ;
     margin: auto;
-    background-image: linear-gradient(127deg,#717cea 6%,#4b81da 87%);
     width: 656px;
     height: 369px;
     border-radius: 15px;
+    background-image: linear-gradient(142deg,#55abab,#6fc2ac);
+    
+    &.TimeLine {
+        background-image: linear-gradient(142deg,#55abab,#6fc2ac);
+    }
+
+    &.Review {
+        background-image: linear-gradient(127deg,#717cea 6%,#4b81da 87%);
+    }
 `;
 
 export const SIcon = css`

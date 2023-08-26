@@ -1,11 +1,11 @@
 import React from 'react';
 /** @jsxImportSource @emotion/react */
-import * as S from "./style";
+import * as S from "../Style";
 
 function ReviewContainer(props) {
     return (
         <div css={S.SLayout}>
-            <div css={S.SContainer}>
+            <div css={S.SContainer} className='Review'>
                 <p css={S.SIcon}>🚩</p>
                 <div css={S.FirstText}>
                     정성스레 작성한
