@@ -2,9 +2,9 @@ import React from 'react';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { useRecoilState } from 'recoil';
-import { selectedButtonNameState } from '../../../stores/SelectedButtonNameState';
+import { selectedButtonNameState } from '../../../../stores/SelectedButtonNameState';
 
-function FeedButton({ name }) {
+function TitleButton({ name }) {
     const [selectedButtonName, setSelectedButtonName] = useRecoilState(selectedButtonNameState);
 
     const handleButtonClick = () => {
@@ -47,4 +47,4 @@ function FeedButton({ name }) {
     );
 }
 
-export default FeedButton;
+export default TitleButton;

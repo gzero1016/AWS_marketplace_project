@@ -1,15 +1,16 @@
 import React from 'react';
-import Header from '../../component/HeaderLayout/Header/Header';
-import Profile from '../../component/HeaderLayout/Profile/Profile';
-import FeedContainer from '../../component/FeedContainer/FeedContainer';
+import HeaderLayout from '../../component/HeaderLayout/HeaderLayout';
+import FeedHeader from '../../component/FeedHeader/FeedHeader';
+import Bottom from '../../component/Bottom/Bottom';
 
 function FeedPage(props) {
     return (
-        <>
-            <Header />
-            <Profile />
-            <FeedContainer />
-        </>
+        <div>
+            <HeaderLayout>
+            <FeedHeader />
+            <Bottom />
+            </HeaderLayout>
+        </div>
     );
 }
 

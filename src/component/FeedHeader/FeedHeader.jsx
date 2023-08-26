@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import * as S from "./Style";
 import { TbCurrentLocation } from "react-icons/tb";
-import FeedButton from './FeedButton/FeedButton';
 
-function FeedContainer(props) {
+function FeedHeader(props) {
     const [selectedButton, setSelectedButton] = useState('전체'); // 초기값으로 '전체' 버튼을 선택
 
     const handleButtonClick = (buttonName) => {
@@ -13,15 +12,6 @@ function FeedContainer(props) {
 
     return (
         <div css={S.SLayout}>
-            <div css={S.SHeaderLayout}>
-                <div css={S.SHeader}>
-                    <FeedButton name="피드" />
-                    <FeedButton name="타임라인" />
-                    <FeedButton name="리뷰" />
-                    <FeedButton name="예약주문" />
-                    <FeedButton name="저장" />
-                </div>
-            </div>
             <div css={S.SMainLayout}>
                 <div css={S.SFeedContainer}>
                     <div css={S.SFeedMainContainer}>
@@ -50,4 +40,5 @@ function FeedContainer(props) {
     );
 }
 
-export default FeedContainer;
+
+export default FeedHeader;
