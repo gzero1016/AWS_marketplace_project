@@ -14,7 +14,6 @@ export const SContainer = css`
     width: 656px;
     height: 369px;
     border-radius: 15px;
-    background-image: linear-gradient(142deg,#55abab,#6fc2ac);
     
     &.TimeLine {
         background-image: linear-gradient(142deg,#55abab,#6fc2ac);
@@ -22,6 +21,10 @@ export const SContainer = css`
 
     &.Review {
         background-image: linear-gradient(127deg,#717cea 6%,#4b81da 87%);
+    }
+
+    &.Save {
+        background-image: linear-gradient(127deg,#eb8787 7%,#ef9177 87%);
     }
 `;
 
@@ -48,6 +51,11 @@ export const SBtnBox = css`
 export const SImg = css`
     height: 155px;
     width: 235px;
+    
+    &.Save {
+        height: 180px;
+        width: 225px;
+    }
 `;
 
 export const SImgBox = css`
@@ -59,12 +67,16 @@ export const SBottomText = css`
     color: rgb(187, 237, 238);
     font-size: 15px;
     line-height: 25px;
+    &.Save {
+        color: white;
+    }
 `;
 
 export const FirstText = css`
     font-size: 20px;
     color: white;
     line-height: 26px;
+    letter-spacing: -1px;
     & strong {
         font-size: 20px;
         font-weight: 900;

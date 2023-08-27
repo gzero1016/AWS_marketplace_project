@@ -1,15 +1,15 @@
 import React from 'react';
 import HeaderLayout from '../../component/HeaderLayout/HeaderLayout';
-import ReviewContainer from '../../component/ReviewContainer/ReviewContainer';
 import Bottom from '../../component/Bottom/Bottom';
+import SaveContainer from '../../component/SaveContainer/SaveContainer';
 
-function ReviewPage(props) {
+function SavePage(props) {
     return (
         <HeaderLayout>
-        <ReviewContainer />
+        <SaveContainer />
         <Bottom />
         </HeaderLayout>
     );
 }
 
-export default ReviewPage;
+export default SavePage;

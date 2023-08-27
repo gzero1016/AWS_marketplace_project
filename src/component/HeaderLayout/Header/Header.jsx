@@ -13,14 +13,14 @@ function Header(props) {
                     <div css={S.SNaverIconContainer}>
                         <SiNaver css={S.SNaverIcon}/>
                     </div>
-                    <div css={S.SFont}>
+                    <button css={S.SFont}>
                         My플레이스
-                    </div>
+                    </button>
                 </h1>
                     <button css={S.SCouponButton}>
                         <BsTicket css={S.SCouponIcon}/>
                         쿠폰
-                        </button>
+                    </button>
                     <button css={S.SMenuButton}>
                         <HiMenu css={S.SMenuIcon}/>
                     </button>

@@ -11,7 +11,13 @@ export const SH1 = css`
     `;
 
     export const SFont = css`
-    padding: 2px 11px;
+    padding: 11px 2px 5px 2px;
+    margin-left: 3px;
+    border: none;
+    background-color: transparent;
+    font-size: 17px;
+    font-weight: 400;
+    color: white;
     `;
 
 export const SHeader = css`
@@ -44,8 +50,8 @@ export const SNaverIconContainer = css`
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 17px;
     border: 1px solid white;
     background-color: white;
     cursor: pointer;
@@ -85,14 +91,11 @@ export const SMenuIcon = css`
         color: white;
     }
 `;
+
 export const SCouponIcon = css`
     position: absolute;
     left: 50%;
     top: 50%;
     font-size: 35px;
     transform: translate(-50%, -50%);
-    * {
-        color: white;
-        font-weight: 200;
-    }
 `;
