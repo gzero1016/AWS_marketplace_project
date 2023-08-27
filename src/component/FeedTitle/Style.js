@@ -15,18 +15,18 @@ export const SButtonLayout = css`
     justify-content: center;
     align-items: center;
     padding: 0px 20px;
-    width: 680px;
+    width: 690px;
     height: 48px;
 `;
 
 export const SButtonContainer = css`
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin: 0px -20px;
     padding-top: 10px;
     padding-bottom: 2px;
-    width: 720px;
+    width: 800px;
     height: 36px;
     
     & div {
@@ -52,6 +52,6 @@ export const SSelectedButton = css`
     font-size: 14px;
     font-weight: 500;
     height: 36px;
-    background-color: rgb(66, 66, 66);
+    background-color: rgb(66, 66, 66);;
     color: rgb(255, 255, 255);
 `;

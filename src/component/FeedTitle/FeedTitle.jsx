@@ -6,7 +6,7 @@ function FeedTitle({ name }) {
     const [ selectedButtonName, setSelectedButtonName ] = useState('');
 
     const buttons = [
-        '자연명소',
+        'IT',
         '카페',
         '숙박',
         '양식',

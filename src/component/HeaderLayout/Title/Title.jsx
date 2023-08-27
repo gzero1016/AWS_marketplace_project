@@ -18,9 +18,9 @@ function Title(props) {
                     <Link to={"/review"}>
                         <TitleButton name="리뷰" />
                     </Link>
-                    {/* <Link to={"/reservation"}> */}
+                    <Link to={"/reservation"}>
                         <TitleButton name="예약・주문" />
-                    {/* </Link> */}
+                    </Link>
                     <Link to={"/save"}>
                     <TitleButton name="저장" />
                     </Link>

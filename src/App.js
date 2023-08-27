@@ -25,7 +25,7 @@ function App() {
           <TitleButton name="저장" path="/save" />
         </div>
         <Routes>
-          <Route path="/" element={<FeedPage />} /> 
+          <Route path="/" element={<FeedPage />} />
           <Route path="/feed" element={<FeedPage />} />
           <Route path="/timeline" element={<TimeLinePage />} />
           <Route path="/review" element={<ReviewPage />} />

@@ -16,7 +16,7 @@ function Header(props) {
                         </div>
                     </div>
                     <button css={S.SFont}>
-                        My플레이스
+                        MY플레이스
                     </button>
                 </h1>
                     <button css={S.SCouponButton}>

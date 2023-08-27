@@ -11,7 +11,7 @@ function FeedPage(props) {
             <HeaderLayout>
             <FeedHeader />
             <FeedTitle />
-            {/* <FeedContainer /> */}
+            <FeedContainer />
             <Bottom />
             </HeaderLayout>
         </div>

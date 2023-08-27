@@ -10,13 +10,13 @@ export const SH1 = css`
     cursor: pointer;
     `;
 
-    export const SFont = css`
+export const SFont = css`
     padding: 11px 2px 5px 2px;
     margin-left: 3px;
     border: none;
     background-color: transparent;
     font-size: 17px;
-    font-weight: 400;
+    font-weight: 500;
     color: white;
     `;
 
