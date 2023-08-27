@@ -15,9 +15,9 @@ function Header(props) {
                             <SiNaver css={S.SNaverIcon}/>
                         </div>
                     </div>
-                    <button css={S.SFont}>
+                    <div css={S.SFont}>
                         MY플레이스
-                    </button>
+                    </div>
                 </h1>
                     <button css={S.SCouponButton}>
                         <BsTicket css={S.SCouponIcon}/>

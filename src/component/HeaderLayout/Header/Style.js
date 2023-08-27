@@ -11,13 +11,19 @@ export const SH1 = css`
     `;
 
 export const SFont = css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 11px 2px 5px 2px;
     margin-left: 3px;
+    margin-bottom: 4px;
     border: none;
     background-color: transparent;
     font-size: 17px;
     font-weight: 500;
     color: white;
+    line-height: -2px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
     `;
 
 export const SHeader = css`
@@ -54,8 +60,8 @@ export const SNaverIconContainer = css`
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     border: 1px solid white;
     background-color: white;
     cursor: pointer;

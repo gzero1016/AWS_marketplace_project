@@ -21,7 +21,7 @@ function App() {
           <TitleButton name="피드" path="/feed" />
           <TitleButton name="타임라인" path="/timeline" />
           <TitleButton name="리뷰" path="/review" />
-          <TitleButton name="예약・주문" path="/reservation" />
+          <TitleButton name="예약·주문" path="/reservation" />
           <TitleButton name="저장" path="/save" />
         </div>
         <Routes>

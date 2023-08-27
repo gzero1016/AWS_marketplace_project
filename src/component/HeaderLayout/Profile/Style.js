@@ -121,7 +121,8 @@ export const SMissionBox = css`
 export const SMission = css`
     position: absolute;
     transform: translateX(-50%);
-    left: 60%;
+    left: 59%;
+    width: 43px;
     border: none;
     font-size: 15px;
     font-weight: 700;
@@ -133,7 +134,8 @@ export const SMission = css`
 export const SMissionIcon = css`
     position: absolute;
     transform: translateX(-50%);
-    left: 33%;
+    left: 30%;
+    top: 30%;
     * {
         color: white;
     }
@@ -142,7 +144,8 @@ export const SMissionIcon = css`
 export const SReviewIcon = css`
     position: absolute;
     transform: translateX(-50%);
-    left: 36%;
+    left: 34%;
+    top: 30%;
     * {
         color: white;
         background-color: white;
