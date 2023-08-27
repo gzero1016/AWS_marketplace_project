@@ -46,8 +46,8 @@ export const SProfileContainer = css`
 export const SProfileImg = css`
     justify-content: flex-start;
     margin-right: 27px;
-    width: 64px;
-    height: 64px;
+    width: 60px;
+    height: 60px;
     border: 2px solid white;
     background-color: white;
     border-radius: 50%;
@@ -72,6 +72,7 @@ export const SLogin = css`
     color: white;
     font-size: 17px;
     font-weight: 500;
+    line-height: 2rem;
     `;
 
 export const SLoginIcon = css`

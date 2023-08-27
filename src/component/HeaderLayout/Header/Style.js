@@ -39,10 +39,14 @@ export const SNaverIcon = css`
     color: rgb(6, 180, 149);
     }
     position: absolute;
-    font-size: 10px;
+    font-size: 9px;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
+`;
+
+export const SnaverLayout = css`
+    padding: 8px 5px 7px 5px;
 `;
 
 export const SNaverIconContainer = css`
@@ -50,8 +54,8 @@ export const SNaverIconContainer = css`
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 17px;
-    height: 17px;
+    width: 18px;
+    height: 18px;
     border: 1px solid white;
     background-color: white;
     cursor: pointer;

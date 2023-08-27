@@ -1,6 +1,14 @@
 import { css } from "@emotion/react";
 
 export const GSCommon = css`
+    * {
+        font-family: 'NanumSquareRoundEB', sans-serif;
+    }
+    
+    button {
+        font-family: 'NanumSquareRoundEB', sans-serif;
+    }
+
     html {
         width: 100%;
         height: 100%;
@@ -8,8 +16,7 @@ export const GSCommon = css`
 
     *::-webkit-scrollbar {
         border: none;
-        width: 6px;
-        
+        width: 6px;   
     }
 
     *::-webkit-scrollbar-thumb {

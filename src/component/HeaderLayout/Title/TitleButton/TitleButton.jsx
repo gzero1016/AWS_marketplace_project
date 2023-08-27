@@ -29,7 +29,7 @@ function TitleButton({ name, path }) {
         border: none;
         font-size: 17px;
         font-weight: ${isSelected ? '800' : '400'};
-        color: white;
+        color: ${isSelected ? '#fff' : 'rgba(255,255,255,.7)'};
         cursor: pointer;
         display: inline-block;
     `;

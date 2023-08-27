@@ -17,6 +17,7 @@ function App() {
         <Reset />
         <Global styles={S.GSCommon} />
         <div style={{ display: 'none' }}>
+          <TitleButton name="피드" path="/" />
           <TitleButton name="피드" path="/feed" />
           <TitleButton name="타임라인" path="/timeline" />
           <TitleButton name="리뷰" path="/review" />
@@ -24,6 +25,7 @@ function App() {
           <TitleButton name="저장" path="/save" />
         </div>
         <Routes>
+          <Route path="/" element={<FeedPage />} /> 
           <Route path="/feed" element={<FeedPage />} />
           <Route path="/timeline" element={<TimeLinePage />} />
           <Route path="/review" element={<ReviewPage />} />

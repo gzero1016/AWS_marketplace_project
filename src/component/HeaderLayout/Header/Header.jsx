@@ -10,8 +10,10 @@ function Header(props) {
         <div css={S.SLayout}>
             <header css={S.SHeader}>
                 <h1 css={S.SH1}>
-                    <div css={S.SNaverIconContainer}>
-                        <SiNaver css={S.SNaverIcon}/>
+                    <div css={S.SnaverLayout}>
+                        <div css={S.SNaverIconContainer}>
+                            <SiNaver css={S.SNaverIcon}/>
+                        </div>
                     </div>
                     <button css={S.SFont}>
                         My플레이스
