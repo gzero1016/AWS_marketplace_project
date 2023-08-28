@@ -4,19 +4,28 @@ export const SLayout = css`
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     width: 100%;
     * {
         cursor: pointer;
     }
 `;
 
-export const SButtonLayout = css`
+export const SScrollableButtons = css`
     display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 8px;
+    overflow-y: auto;
+
+    ::-webkit-scrollbar {
+        height: 2px;
+    }
+`;
+
+export const SButtonLayout = css`
     padding: 0px 20px;
-    width: 630px;
+    width: 650px;
     height: 48px;
+    margin: auto;
 `;
 
 export const SButtonContainer = css`
@@ -26,12 +35,19 @@ export const SButtonContainer = css`
     margin: 0px -20px;
     padding-top: 10px;
     padding-bottom: 2px;
-    width: 800px;
+    width: 670px;
     height: 36px;
     
     & div {
         padding-left: 6px;
     }
+`;
+
+export const SButtonBox = css`
+    display: flex;
+    justify-content: flex-start;
+    width: 650px;
+    overflow: hidden;
 `;
 
 export const SButton = css`
@@ -43,6 +59,7 @@ export const SButton = css`
     height: 36px;
     background-color: transparent;
     color: #666;
+    white-space: nowrap; 
 `;
 
 export const SSelectedButton = css`

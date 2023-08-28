@@ -29,8 +29,8 @@ function HiddenFeed(props) {
                 </div>
                 <div css={S.SImgConatiner}>
                     <div css={S.SMainImgBox}>
-                        <img css={S.SImg1} src="\Imgs\2.jpeg" alt=""/>
-                        <img css={S.SImg2} src="\Imgs\1.jpeg" alt=""/>
+                        <img css={S.SImg1} src="\Imgs\1.jpeg" alt=""/>
+                        <img css={S.SImg2} src="\Imgs\2.jpeg" alt=""/>
                         <img css={S.SImg3} src="\Imgs\3.jpeg" alt=""/>
                     </div>
                     <div css={S.SLocationBox}>

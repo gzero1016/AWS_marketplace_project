@@ -50,7 +50,7 @@ export const SAllButton = css`
     font-size: 15px;
     height: 42px;
     font-weight: 500;
-    box-shadow: (0, 0, 0, 0.06) 0px 2px 6px 0px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 6px 0px;
     background-color: white;
     border: none;
     border-radius: 5px;

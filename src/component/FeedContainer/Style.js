@@ -10,7 +10,7 @@ export const SContainer = css`
     padding: 16px 20px;
     margin: auto;
     width: 660px;
-    height: 650px;
+    height: 630px;
 `;
 
 export const SProfileConatiner = css`
