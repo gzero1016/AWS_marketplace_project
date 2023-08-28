@@ -23,7 +23,7 @@ export const SFeedMainContainer = css`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 740px;
+    width: 700px;
     height: 66px;
 `;
 

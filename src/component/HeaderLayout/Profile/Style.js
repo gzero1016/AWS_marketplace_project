@@ -122,7 +122,7 @@ export const SMission = css`
     position: absolute;
     transform: translateX(-50%);
     left: 59%;
-    width: 43px;
+    white-space: nowrap;
     border: none;
     font-size: 15px;
     font-weight: 700;

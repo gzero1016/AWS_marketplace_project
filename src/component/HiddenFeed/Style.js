@@ -46,6 +46,7 @@ export const SImgBox = css`
 `;
 
 export const SImg = css`
+    position: relative;
     display: flex;
     width: 40px;
     height: 40px;
@@ -110,10 +111,11 @@ export const SImgConatiner = css`
 
 export const SMainImgBox = css`
     display: flex;
+    position: relative;
 `;
 
 export const SImg1 = css`
-    width: 328px;
+    width: 400px;
     height: 360px;
     border-right: 2px solid white;
     border-bottom-left-radius: 8px;
@@ -121,10 +123,19 @@ export const SImg1 = css`
     `;
 
 export const SImg2 = css`
-    width: 330px;
-    height: 360px;
-    border-bottom-right-radius: 8px;
+    width: 258px;
+    height: 180px;
+    border-bottom: 2px solid white;
     border-top-right-radius: 8px;
+`;
+
+export const SImg3 = css`
+    position: absolute;
+    right: 0px;
+    top: 50.5%;
+    width: 258px;
+    height: 178px;
+    border-bottom-right-radius: 8px;
 `;
 
 export const SLocationBox = css`

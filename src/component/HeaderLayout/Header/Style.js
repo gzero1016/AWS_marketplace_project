@@ -19,7 +19,7 @@ export const SFont = css`
     margin-bottom: 4px;
     border: none;
     background-color: transparent;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 500;
     color: white;
     line-height: -2px;
@@ -60,8 +60,8 @@ export const SNaverIconContainer = css`
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     border: 1px solid white;
     background-color: white;
     cursor: pointer;

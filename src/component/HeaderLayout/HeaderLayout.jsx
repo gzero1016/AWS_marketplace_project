@@ -1,20 +1,19 @@
-import React, { Children } from 'react';
+import React, { Children } from "react";
 /** @jsxImportSource @emotion/react */
-import * as S from "./Style";
-import Header from './Header/Header';
-import Profile from './Profile/Profile';
-import Title from './Title/Title';
+import Header from "./Header/Header";
+import Profile from "./Profile/Profile";
+import Title from "./Title/Title";
 
 function HeaderLayout({ children }) {
-    return (
-        <div css={S.SLayout}>
-            <Header />
-            <Profile />
-            <Title />
+  return (
+    <>
+      <Header />
+      <Profile />
+      <Title />
 
-            {children}
-        </div>
-    );
+      {children}
+    </>
+  );
 }
 
 export default HeaderLayout;
