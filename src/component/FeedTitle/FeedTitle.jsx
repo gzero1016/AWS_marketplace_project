@@ -5,7 +5,6 @@ import { Link, useLocation } from 'react-router-dom';
 
 function FeedTitle({ name }) {
     const [ selectedButtonName, setSelectedButtonName ] = useState('');
-    const [ scrollPosition, setScrollPosition ] = useState(0);
     const location = useLocation();
     const scrollContainerRef = useRef(null);
 
@@ -55,8 +54,8 @@ function FeedTitle({ name }) {
                     <div css={S.SButtonBox}>
                         <button css={S.SScrollButton} onClick={() => handleScroll(-420)}> ⟨ </button>
                         <div css={S.SScrollableButtons} ref={scrollContainerRef}>
-                            {buttons.map((buttonName, index) => (<button key={index} css={[ S.SButton, selectedButtonName === buttonName && S.SSelectedButton ]}
-                                onClick={() => handleButtonClick(buttonName)}>
+                            {buttons.map((buttonName, index) => (
+                            <button key={index} css={[ S.SButton, selectedButtonName === buttonName && S.SSelectedButton ]} onClick={() => handleButtonClick(buttonName)}>
                                 {buttonName}
                             </button>
                             ))}
