@@ -4,14 +4,12 @@ export const STopLayout = css`
     display: flex;
     justify-content: center;
     align-items: center;
-
     padding: 44px 0px 51px 0px;
 `;
 
 export const STopContainer = css`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 `;
 
@@ -25,7 +23,7 @@ export const STopTextContainer = css`
 
 export const SText = css`
     margin-top: 8px;
-    `;
+`;
 
 export const SLoginButton = css`
     margin-top: 17px;
@@ -47,7 +45,6 @@ export const SBottomLayout = css`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
     margin: 0px 20px;
     border-top: 1px solid #ebedef;
     padding: 44px 0px 50px 0px;
@@ -56,7 +53,6 @@ export const SBottomLayout = css`
 export const SBottomContainer = css`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 `;
 

@@ -1,54 +1,49 @@
 import { css } from "@emotion/react";
 
 export const SLayout = css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    * {
+    & button {
         cursor: pointer;
     }
-`;
+    `;
+
+export const SScrollButtonContainer = css`
+    display: flex;
+    padding-top: 10px;
+    `;
+
+export const SScrollButton = css`
+    background-color: transparent;
+    color: transparent;
+    border: none;
+    cursor: pointer;
+    
+    &:hover {
+        border: none;
+        background-color: transparent;
+        color: #333;
+    }
+    `;
 
 export const SScrollableButtons = css`
     display: flex;
-    gap: 8px;
-    overflow-y: auto;
-
+    gap: 7px;
+    scroll-behavior: smooth;
+    overflow-y: hidden;
+    
     ::-webkit-scrollbar {
-        height: 2px;
+        display: none;
     }
-`;
+    `;
 
 export const SButtonLayout = css`
-    padding: 0px 20px;
-    width: 650px;
-    height: 48px;
     margin: auto;
-`;
-
-export const SButtonContainer = css`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px -20px;
-    padding-top: 10px;
-    padding-bottom: 2px;
-    width: 670px;
-    height: 36px;
-    
-    & div {
-        padding-left: 6px;
-    }
-`;
+    `;
 
 export const SButtonBox = css`
     display: flex;
-    justify-content: flex-start;
-    width: 650px;
+    width: 700px;
     overflow: hidden;
-`;
+    `;
 
 export const SButton = css`
     padding: 0px 13px;

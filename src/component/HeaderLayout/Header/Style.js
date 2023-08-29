@@ -1,84 +1,75 @@
 import { css } from "@emotion/react";
 
+export const SLayout = css`
+    display: flex;
+    justify-content: space-between;
+    background-color:rgb(6, 180, 149);
+    padding: 8px 18px 8px 15px;
+    * {
+        cursor: pointer;
+    }
+`;
+
 export const SH1 = css`
     display: flex;
     align-items: center;
-    width: 95%;
     font-size: 17px;
     font-weight: 500;
     color: white;
-    cursor: pointer;
-    `;
+`;
 
 export const SFont = css`
+    padding: 11px 2px 5px 2px;
+    margin-left: 3px;
+    margin-bottom: 3px;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+`; 
+
+export const SnaverLayout = css`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 11px 2px 5px 2px;
-    margin-left: 3px;
-    margin-bottom: 4px;
-    border: none;
-    background-color: transparent;
-    font-size: 15px;
-    font-weight: 500;
-    color: white;
-    line-height: -2px;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-    `;
-
-export const SHeader = css`
-    display: flex;
-    align-items: center;
-    padding: 8px 15px;
-    height: 36px;
-`;
-
-export const SLayout = css`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color:rgb(6, 180, 149);
-`;
-
-export const SNaverIcon = css`
-  * {
-    color: rgb(6, 180, 149);
-    }
-    position: absolute;
-    font-size: 9px;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-`;
-
-export const SnaverLayout = css`
-    padding: 8px 5px 7px 5px;
+    
 `;
 
 export const SNaverIconContainer = css`
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    width: 18px;
-    height: 18px;
-    border: 1px solid white;
+    margin: 8px 5px 7px 5px;
+    width: 22px;
+    height: 22px;
     background-color: white;
-    cursor: pointer;
+`;
+
+export const SNaverIcon = css`
+    * {
+        color: rgb(6, 180, 149);
+    }
+    font-size: 9px;
+`;
+
+export const SLeftBox = css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const SCouponButton = css`
     position: relative;
     border: none;
     background-color: transparent;
-    margin: 0px 5px;
     width: 40px;
-    height: 40px;
     color: white;
-    cursor: pointer;
     font-size: 12px;
     font-weight: 700;
-    `;
+    white-space: nowrap;
+`;
 
 export const SMenuButton = css`
     position: relative;
@@ -88,7 +79,6 @@ export const SMenuButton = css`
     height: 36px;
     padding: 10px;
     margin-right: -10px;
-    cursor: pointer;
 `;
 
 export const SMenuIcon = css`

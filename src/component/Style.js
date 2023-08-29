@@ -18,11 +18,11 @@ export const SContainer = css`
     &.TimeLine {
         background-image: linear-gradient(142deg,#55abab,#6fc2ac);
     }
-
+    
     &.Review {
         background-image: linear-gradient(127deg,#717cea 6%,#4b81da 87%);
     }
-
+    
     &.Save {
         background-image: linear-gradient(127deg,#eb8787 7%,#ef9177 87%);
     }

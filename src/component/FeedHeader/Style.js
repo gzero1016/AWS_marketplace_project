@@ -2,30 +2,31 @@ import { css } from "@emotion/react";
 
 export const SLayout = css`
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    & button {
+        cursor: pointer;
+    }
 `;
+
 export const SMainLayout = css`
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     background-color: rgb(248, 250, 251);
-`;
+    `;
 
 export const SFeedContainer = css`
     padding: 0px 20px;
     margin: auto;
-`;
+    `;
 
 export const SFeedMainContainer = css`
     display: flex;
     justify-content: space-between;
-    align-items: center;
     width: 700px;
-    height: 66px;
-`;
+    `;
 
 export const SButtonContainer = css`
     display: flex;
@@ -35,15 +36,15 @@ export const SButtonContainer = css`
 
 export const SAllButtonBox = css`
     padding: 6px 0px 6px 20px;
-`;
+    `;
 
 export const SFollowingButtonBox = css`
     padding: 6px 0px 6px 8px;
-`;
+    `;
 
 export const SAreasButtonBox = css`
     padding: 6px 20px 6px 8px;
-`;
+    `;
 
 export const SAllButton = css`
     padding: 0px 13px;
@@ -54,7 +55,6 @@ export const SAllButton = css`
     background-color: white;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
     `;
 
 export const SSelectedButton = css`
@@ -67,13 +67,10 @@ export const SSelectedButton = css`
     border: none;
     border-radius: 5px;
     color: white;
-    cursor: pointer;
 `;
 
 export const SCurrnetBox = css`
     display: flex;
-    align-items: center;
-    position: relative;
     padding: 20px 12px;
     border: none;
     color: gray;

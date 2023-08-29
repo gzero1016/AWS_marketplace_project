@@ -12,9 +12,7 @@ function FeedContainer(props) {
             <div css={S.SContainer}>
                 <div css={S.SProfileConatiner}>
                     <div css={S.SImgProfileBox}>
-                        <div css={S.SImgBox}>
-                            <img css={S.SImg} src="https://avatars.githubusercontent.com/u/93970980?v=4" alt="" />
-                        </div>
+                        <img css={S.SImg} src="https://avatars.githubusercontent.com/u/93970980?v=4" alt="" />
                         <div css={S.SProfileBox}>
                             <strong css={S.SProfileName}>문그내</strong>
                             <p css={S.SInfo}>사진리뷰 9 ・ 팔로워 0</p>
@@ -28,10 +26,8 @@ function FeedContainer(props) {
                     </div>
                 </div>
                 <div css={S.SImgConatiner}>
-                    <div css={S.SMainImgBox}>
-                        <img css={S.SImg1} src="/Imgs/그내1.jpeg" alt=""/>
-                        <img css={S.SImg2} src="/Imgs/그내2.jpeg" alt=""/>
-                    </div>
+                    <img css={S.SImg1} src="/Imgs/그내1.jpeg" alt=""/>
+                    <img css={S.SImg2} src="/Imgs/그내2.jpeg" alt=""/>
                     <div css={S.SLocationBox}>
                         <IoLocation css={S.SLocationIcon}/>
                         <p css={S.SLocationText}>동아대학교 승학캠퍼스</p>
@@ -41,17 +37,16 @@ function FeedContainer(props) {
             <div css={S.STagBox}>
                 <button css={S.STagBt1}>🎉 졸업</button>
                 <button css={S.STagBt1}>🏫 동아대학교</button>
+                <button css={S.STagBt1}>⛰️ 승학캠퍼스</button>
                 <button css={S.STagBt1}>🍎 뉴턴의 사과나무 공원</button>
                 <button css={S.STagBt2}>+1</button>
             </div>
-            <div css={S.SBottomLayout}>
-                <div css={S.SReactionContainer}>
-                    <button css={S.SReactionBnt}>
-                        <PiSmileyLight css={S.SReactionIcon}/>
-                        <p css={S.SReactionText}>반응 남기기</p>
-                    </button>
-                    <p css={S.STimeText}>8.23 수 방문</p>
-                </div>
+            <div css={S.SReactionContainer}>
+                <button css={S.SReactionBnt}>
+                    <PiSmileyLight css={S.SReactionIcon}/>
+                    <p css={S.SReactionText}>반응 남기기</p>
+                </button>
+                <p css={S.STimeText}>8.23 수 방문</p>
             </div>
                 <div css={S.SFeedBottomLayout}>
                     <div css={S.SFeedBottomConatiner}>

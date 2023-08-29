@@ -8,25 +8,25 @@ import * as S from "./Style";
 function Header(props) {
     return (
         <div css={S.SLayout}>
-            <header css={S.SHeader}>
-                <h1 css={S.SH1}>
-                    <div css={S.SnaverLayout}>
-                        <div css={S.SNaverIconContainer}>
-                            <SiNaver css={S.SNaverIcon}/>
-                        </div>
+            <h1 css={S.SH1}>
+                <div css={S.SnaverLayout}>
+                    <div css={S.SNaverIconContainer}>
+                        <SiNaver css={S.SNaverIcon}/>
                     </div>
                     <div css={S.SFont}>
                         MY플레이스
                     </div>
-                </h1>
-                    <button css={S.SCouponButton}>
-                        <BsTicket css={S.SCouponIcon}/>
-                        쿠폰
-                    </button>
-                    <button css={S.SMenuButton}>
-                        <HiMenu css={S.SMenuIcon}/>
-                    </button>
-            </header>
+                </div>
+            </h1>
+            <div css={S.SLeftBox}>
+                <button css={S.SCouponButton}>
+                    <BsTicket css={S.SCouponIcon}/>
+                    쿠폰
+                </button>
+                <button css={S.SMenuButton}>
+                    <HiMenu css={S.SMenuIcon}/>
+                </button>
+            </div>
         </div>
     );
 }

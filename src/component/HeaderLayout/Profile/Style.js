@@ -2,45 +2,21 @@ import { css } from "@emotion/react";
 
 export const SLayout = css`
     display: flex;
-    width: 100%;
     padding-top: 20px;
     padding-bottom: 11px;
-    height: 120px;
     background-color:rgb(6, 180, 149);
-`;
-
-export const SHeaderLayout = css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0px 20px;
-    width: 100%;
-    height: 51px;
-    background-color:rgb(6, 180, 149);
-`;
-
-export const SHeader = css`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: auto;
-    width: 375px;
-    height: 51px;
 `;
 
 export const SProfileMainContainer = css`
     flex-direction: column;
     align-items: center;
     padding: 0px 20px;
-    margin: 0px auto;
-    width: 335px;
-    height: auto;
+    margin: auto;
 `;
 
 export const SProfileContainer = css`
     display: flex;
     align-items: center;
-    width: 100%;
 `;
 
 export const SProfileImg = css`
@@ -56,29 +32,21 @@ export const SProfileImg = css`
 
 export const SLoginContainer = css`
     display: flex;
-    justify-content: center;
     align-items: center;
     background-color: transparent;
     border: none;
     cursor: pointer;
 `;
 
-
 export const SLogin = css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-right: 5px;
     color: white;
     font-size: 17px;
     font-weight: 500;
-    line-height: 2rem;
-    `;
+`;
 
 export const SLoginIcon = css`
-    transform: translate(0%, -30%);
-    margin-top: 6px;
-    margin-left: 5px;
+    transform: translate(0%, -22%);
     color: white;
     font-size: 11px;
 `;
@@ -104,7 +72,7 @@ export const SReview = css`
     color: white;
     background-color: transparent;
     cursor: pointer;
-    `;
+`;
 
 export const SMissionBox = css`
     display: flex;
@@ -139,7 +107,7 @@ export const SMissionIcon = css`
     * {
         color: white;
     }
-    `;
+`;
 
 export const SReviewIcon = css`
     position: absolute;

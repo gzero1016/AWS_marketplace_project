@@ -14,9 +14,7 @@ function CafeFeed(props) {
             <div css={S.SContainer}>
                 <div css={S.SProfileConatiner}>
                     <div css={S.SImgProfileBox}>
-                        <div css={S.SImgBox}>
-                            <img css={S.SImg} src="https://m.place.naver.com/my/_next/static/image/_/assets/images/icon_profile_default.cf1f777d594520630ff249eb31ab38c2.png" alt="" />
-                        </div>
+                        <img css={S.SImg} src="https://m.place.naver.com/my/_next/static/image/_/assets/images/icon_profile_default.cf1f777d594520630ff249eb31ab38c2.png" alt="" />
                         <div css={S.SProfileBox}>
                             <strong css={S.SProfileName}>Q1234567</strong>
                             <p css={S.SInfo}>사진리뷰 88 ・ 팔로워 6</p>
@@ -30,11 +28,9 @@ function CafeFeed(props) {
                     </div>
                 </div>
                 <div css={S.SImgConatiner}>
-                    <div css={S.SMainImgBox}>
-                        <img css={S.SImg1} src="\Imgs\케이크1.jpeg" alt=""/>
-                        <img css={S.SImg2} src="\Imgs\케이크2.jpeg" alt=""/>
-                        <img css={S.SImg3} src="\Imgs\케이크3.jpeg" alt=""/>
-                    </div>
+                    <img css={S.SImg1} src="\Imgs\케이크1.jpeg" alt=""/>
+                    <img css={S.SImg2} src="\Imgs\케이크2.jpeg" alt=""/>
+                    <img css={S.SImg3} src="\Imgs\케이크3.jpeg" alt=""/>
                     <div css={S.SLocationBox}>
                         <IoLocation css={S.SLocationIcon}/>
                         <p css={S.SLocationText}>제주시 이도이동 최신</p>
@@ -46,14 +42,12 @@ function CafeFeed(props) {
                 <button css={S.STagBt1}>✈️ 제주도 추천!</button>
                 <button css={S.STagBt2}>+4</button>
             </div>
-            <div css={S.SBottomLayout}>
-                <div css={S.SReactionContainer}>
-                    <button css={S.SReactionBnt}>
-                        <PiSmileyLight css={S.SReactionIcon}/>
-                        <p css={S.SReactionText}>반응 남기기</p>
-                    </button>
-                    <p css={S.STimeText}>8.28 월 방문</p>
-                </div>
+            <div css={S.SReactionContainer}>
+                <button css={S.SReactionBnt}>
+                    <PiSmileyLight css={S.SReactionIcon}/>
+                    <p css={S.SReactionText}>반응 남기기</p>
+                </button>
+                <p css={S.STimeText}>8.28 월 방문</p>
             </div>
                 <div css={S.SFeedBottomLayout}>
                     <div css={S.SFeedBottomConatiner}>

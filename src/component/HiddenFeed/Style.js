@@ -9,45 +9,36 @@ export const SLayout = css`
 export const SContainer = css`
     padding: 16px 20px;
     margin: auto;
-    width: 660px;
-    height: 630px;
-`;
+    `;
 
 export const SProfileConatiner = css`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 64px;
+    margin: 10px 0px;
     * {
         cursor: pointer;
     }
-`;
+    `;
 
 export const SProfileBox = css`
     display: flex;
     flex-direction: column;
-`;
+    `;
 
 export const SImgProfileBox = css`
     display: flex;
     align-items: center;
-`;
+    `;
 
 export const SSubBox = css`
+    display: flex;
     align-items: center;
-`;
-
-export const SImgBox = css`
-    margin-right: 8px;
-    width: 42px;
-    height: 42px;
-    border: 2px solid #fff;
-    border-radius: 50%;
-`;
+    `;
 
 export const SImg = css`
-    position: relative;
     display: flex;
+    margin-right: 10px;
     width: 40px;
     height: 40px;
     border: 2px solid #eee;
@@ -57,7 +48,6 @@ export const SImg = css`
 export const SProfileName = css`
     font-size: 16px;
     font-weight: 700;
-    height: 20px;
 `;
 
 export const SInfo = css`
@@ -80,11 +70,9 @@ export const SFollow = css`
 
 export const SIconBox = css`
     position: relative;
+    margin-top: 5px;
     margin-left: 4px;
-    margin-right: -12px;
-    height: 30px;
     letter-spacing: -1px;
-    width: 26px;
     background-color: rgba(0, 0, 0, 0.0);
     border: none;
 `;
@@ -92,8 +80,6 @@ export const SIconBox = css`
 export const SIcon = css`
     position: absolute;
     transform: translate(-50%, -70%);
-    top: 50%;
-    height: 18px;
     * {
         color: rgb(184, 184, 184);
     }
@@ -101,21 +87,13 @@ export const SIcon = css`
 
 export const SImgConatiner = css`
     position: relative;
-    margin-top: 2px;
-    width: 660px;
-    height: 360px;
     * {
         cursor: pointer;
     }
 `;
 
-export const SMainImgBox = css`
-    display: flex;
-    position: relative;
-`;
-
 export const SImg1 = css`
-    width: 400px;
+    width: 328px;
     height: 360px;
     border-right: 2px solid white;
     border-bottom-left-radius: 8px;
@@ -123,9 +101,9 @@ export const SImg1 = css`
     `;
 
 export const SImg2 = css`
-    width: 258px;
-    height: 180px;
-    border-bottom: 2px solid white;
+    width: 330px;
+    height: 360px;
+    border-bottom-right-radius: 8px;
     border-top-right-radius: 8px;
 `;
 
@@ -143,8 +121,8 @@ export const SLocationBox = css`
     align-items: center;
     position: absolute;
     left: 8px;
-    bottom: 5px;
-    height: 20px;
+    bottom: 10px;
+    height: 23px;
     border-radius: 4px;
     background-color: rgb(0, 0, 0, 0.5);
     color: white;
@@ -165,7 +143,6 @@ export const SImgText = css`
     margin-top: 10px;
     color: rgb(102, 102, 102);
     font-size: 15px;
-    height: 22px;
 `;
 
 export const STagBox = css`
@@ -197,10 +174,6 @@ export const STagBt2 = css`
     height: 26px;
     line-height: 18px;
 `;
-
-export const SBottomLayout = css`
-    width: 100%;
-    `;
 
 export const SReactionContainer = css`
     display: flex;
@@ -281,5 +254,4 @@ export const SSaveBox = css`
 
 export const SSaveIcon = css`
     color: rgb(184, 184, 184);
-    width: 22px;
 `;

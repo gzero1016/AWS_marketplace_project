@@ -5,7 +5,9 @@ import { Link, useLocation } from 'react-router-dom';
 
 function FeedTitle({ name }) {
     const [ selectedButtonName, setSelectedButtonName ] = useState('');
+    const [ scrollPosition, setScrollPosition ] = useState(0);
     const location = useLocation();
+    const scrollContainerRef = useRef(null);
 
     const buttons = [
         'IT',
@@ -40,18 +42,30 @@ function FeedTitle({ name }) {
         }
     }
 
+    const handleScroll = (scrollAmount) => {
+        const container = scrollContainerRef.current;
+        if (container) {
+            const newScrollPosition = scrollPosition + scrollAmount;
+            container.scrollLeft = newScrollPosition >= 0 ? newScrollPosition : 0;
+            setScrollPosition(newScrollPosition >= 0 ? newScrollPosition : 0);
+            console.log("너 실행됨?");
+        }
+    }
+
     return (
         <div css={S.SLayout}>
-            <div css={S.SButtonLayout}>
-                <div css={S.SButtonContainer}>
+            <div css={S.SScrollButtonContainer}>
+                <div css={S.SButtonLayout}>
                     <div css={S.SButtonBox}>
-                        <div css={S.SScrollableButtons}>
+                        <button css={S.SScrollButton} onClick={() => handleScroll(-420)}> ⟨ </button>
+                        <div css={S.SScrollableButtons} ref={scrollContainerRef}>
                             {buttons.map((buttonName, index) => (<button key={index} css={[ S.SButton, selectedButtonName === buttonName && S.SSelectedButton ]}
                                 onClick={() => handleButtonClick(buttonName)}>
                                 {buttonName}
-                                </button>
+                            </button>
                             ))}
                         </div>
+                        <button css={S.SScrollButton} onClick={() => handleScroll(+420)}> ⟩ </button>
                     </div>
                 </div>
             </div>
