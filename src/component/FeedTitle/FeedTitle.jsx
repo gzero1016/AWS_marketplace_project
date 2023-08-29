@@ -29,7 +29,7 @@ function FeedTitle({ name }) {
 
     useEffect(() => {
         const path = location.pathname;
-        const buttonName = path === '/it' ? 'IT' : '';
+        const buttonName = path === '/it' ? 'IT' : '' ;
         setSelectedButtonName(buttonName);
     }, [ location.pathname ]);
 
@@ -38,17 +38,13 @@ function FeedTitle({ name }) {
 
         if (buttonName === 'IT') {
             window.location.href = '/it';
-        } else {
         }
     }
 
     const handleScroll = (scrollAmount) => {
         const container = scrollContainerRef.current;
         if (container) {
-            const newScrollPosition = scrollPosition + scrollAmount;
-            container.scrollLeft = newScrollPosition >= 0 ? newScrollPosition : 0;
-            setScrollPosition(newScrollPosition >= 0 ? newScrollPosition : 0);
-            console.log("너 실행됨?");
+            container.scrollLeft += scrollAmount;
         }
     }
 
