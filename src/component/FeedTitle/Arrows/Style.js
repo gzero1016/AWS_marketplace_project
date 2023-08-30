@@ -7,16 +7,17 @@ export const SScrollButton = css`
     background-color: transparent;
     color: #333;
     border: none;
+    opacity: 0;
     cursor: pointer;
     
     &:hover {
         border: none;
         background-color: transparent;
         color: #333;
+        opacity: 1;
     }
 
     &:disabled {
-        opacity: 0;
         cursor: default;
     }
 `;
