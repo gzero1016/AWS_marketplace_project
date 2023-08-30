@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import FeedPage from "./pages/FeedPage/FeedPage";
 import TimeLinePage from "./pages/TimeLinepage/TimeLinePage";
 import { Reset } from "styled-reset";
@@ -13,6 +13,7 @@ import ITPage from "./pages/ITPage/ITPage";
 import CafePage from "./pages/CafePage/CafePage";
 import DailyPage from "./pages/DailyPage/DailyPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import TitlePage from "./pages/TitlePage/TitlePage";
 
 function App() {
 
@@ -33,8 +34,9 @@ function App() {
         <TitleButton name="저장" path="/save" />
       </div>
       <Routes>
-        <Route path="/" element={<FeedPage />} />
+        <Route path="/" element={<Navigate to="/feed" />} />
         <Route path="/feed" element={<FeedPage />} />
+        <Route path="/title" element={<TitlePage />} />
         <Route path="/timeline" element={<TimeLinePage />} />
         <Route path="/review" element={<ReviewPage />} />
         <Route path="/reservation" element={<ReservationPage />} />

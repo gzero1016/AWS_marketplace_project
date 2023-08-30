@@ -57,10 +57,7 @@ export const SKeyIcon = css`
 `; 
 
 export const SLoginContainer = css`
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     border: 1px solid rgb(230, 230, 234);
     border-radius: 6px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 8px 0px;
@@ -71,7 +68,12 @@ export const SIdContainer = css`
     justify-content: flex-start;
     align-items: center;
     position: relative;
+`;
 
+export const SIdactive = css`
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border: 1px solid rgb(3, 199, 90);
 `;
 
 export const SIdBox = css`
@@ -82,6 +84,7 @@ export const SIdBox = css`
     & input {
         padding: 0px;
         border: none;
+        outline: none;
         width: 413px;
         height: 22px;
         color: rgb(48, 48, 56);
@@ -111,6 +114,12 @@ export const SPwContainer = css`
     border-top: 1px solid rgb(245, 245, 245);
 `;
 
+export const SPwactive = css`
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border: 1px solid rgb(3, 199, 90);
+`;
+
 export const SPwBox = css`
     display: flex;
     justify-content: flex-start;
@@ -119,6 +128,7 @@ export const SPwBox = css`
     & input {
         padding: 0px;
         border: none;
+        outline: none;
         width: 413px;
         height: 22px;
         color: rgb(48, 48, 56);

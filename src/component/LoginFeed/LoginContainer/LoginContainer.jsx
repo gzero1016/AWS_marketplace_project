@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import * as S from "./Style";
 import { AiOutlineDown } from 'react-icons/ai';
@@ -6,6 +6,25 @@ import { AiOutlineUser } from 'react-icons/ai';
 import { AiOutlineLock } from 'react-icons/ai';
 
 function LoginContainer(props) {
+    const [isIdContainerActive, setIdContainerActive] = useState(false);
+    const [isPwContainerActive, setIsPwContainerActive] = useState(false);
+
+    const handleInputFocus = (type) => {
+        if (type === 'id') {
+            setIdContainerActive(true);
+        }else if (type === 'password') {
+            setIsPwContainerActive(true);
+        }
+    };
+    
+    const handleInputBlur = (type) => {
+        if (type === 'id') {
+            setIdContainerActive(false);
+        }else if (type === 'password') {
+            setIsPwContainerActive(false);
+        }
+    };
+
     return (
         <div css={S.SLayout}>
             <div css={S.SNaverLogoBox}>
@@ -19,16 +38,16 @@ function LoginContainer(props) {
                     </div>
                 </div>
                 <div css={S.SLoginContainer}>
-                    <div css={S.SIdContainer}>
+                    <div css={[S.SIdContainer, isIdContainerActive && S.SIdactive]}>
                         <AiOutlineUser css={S.SIdIcon} />
                         <div css={S.SIdBox}>
-                            <input type="text" value={"아이디"}/>
+                            <input type="text" placeholder="아이디" onFocus={() => handleInputFocus('id')} onBlur={() => handleInputBlur('id')} />
                         </div>
                     </div>
-                    <div css={S.SPwContainer}>
+                    <div css={[S.SPwContainer, isPwContainerActive && S.SPwactive]}>
                         <div css={S.SPwBox}>
                             <AiOutlineLock css={S.SPwIcon}/>
-                            <input type="password" defaultValue={"비밀번호"}/>
+                            <input type="password" placeholder="비밀번호" onFocus={() => handleInputFocus('password')} onBlur={() => handleInputBlur('password')} />
                         </div>
                     </div>
                 </div>
