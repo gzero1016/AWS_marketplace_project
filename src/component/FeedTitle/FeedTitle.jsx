@@ -3,13 +3,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as S from "./Style";
 import { Link, useLocation } from 'react-router-dom';
 
+
 function FeedTitle({ name }) {
-    const [ selectedButtonName, setSelectedButtonName ] = useState('');
+    const [selectedButtonName, setSelectedButtonName] = useState('');
     const location = useLocation();
     const scrollContainerRef = useRef(null);
 
     const buttons = [
         'IT',
+        '일상',
         '카페',
         '숙박',
         '양식',
@@ -21,29 +23,30 @@ function FeedTitle({ name }) {
         '중식',
         '아이와 함께',
         '일상',
-        '등산',
+        '등산', 
         '뷔페/레스토랑',
         '물놀이'
     ];
 
     useEffect(() => {
         const path = location.pathname;
-        const buttonName = path === '/it' ? 'IT' : '' ;
-        setSelectedButtonName(buttonName);
-    }, [ location.pathname ]);
+        const buttonNames = { '/it': 'IT', '/cafe': '카페', '/daily': '일상' };
+        setSelectedButtonName(buttonNames[path]);
+    }, [location.pathname]);
 
-    const handleButtonClick = (buttonName) => {
+    const handleButtonClick = (buttonName, index) => {
         setSelectedButtonName(buttonName);
-
-        if (buttonName === 'IT') {
-            window.location.href = '/it';
+        handleScroll(index * 120);
+        const buttonRoutes = { 'IT': '/it', '카페': '/cafe', '일상': '/daily' };
+        if (buttonRoutes[buttonName]) {
+            window.location.href = buttonRoutes[buttonName];
         }
     }
 
     const handleScroll = (scrollAmount) => {
         const container = scrollContainerRef.current;
         if (container) {
-            container.scrollLeft += scrollAmount;
+            container.scrollLeft = scrollAmount;
         }
     }
 
@@ -55,12 +58,16 @@ function FeedTitle({ name }) {
                         <button css={S.SScrollButton} onClick={() => handleScroll(-420)}> ⟨ </button>
                         <div css={S.SScrollableButtons} ref={scrollContainerRef}>
                             {buttons.map((buttonName, index) => (
-                            <button key={index} css={[ S.SButton, selectedButtonName === buttonName && S.SSelectedButton ]} onClick={() => handleButtonClick(buttonName)}>
-                                {buttonName}
-                            </button>
+                                <button
+                                    key={index}
+                                    css={[S.SButton, selectedButtonName === buttonName && S.SSelectedButton]}
+                                    onClick={() => handleButtonClick(buttonName, index)}
+                                >
+                                    {buttonName}
+                                </button>
                             ))}
                         </div>
-                        <button css={S.SScrollButton} onClick={() => handleScroll(+420)}> ⟩ </button>
+                        <button css={S.SScrollButton} onClick={() => handleScroll(420)}> ⟩ </button>
                     </div>
                 </div>
             </div>
