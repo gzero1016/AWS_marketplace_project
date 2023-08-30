@@ -1,13 +1,30 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import * as S from "./Style";
 import { Link, useLocation } from 'react-router-dom';
+import { ScrollMenu, getItemsPos, VisibilityContext } from 'react-horizontal-scrolling-menu';
+import "react-horizontal-scrolling-menu/dist/styles.css";
+import { LeftArrow, RightArrow } from './Arrows/Arrows';
+import Card from './Card/Card';
 
 
 function FeedTitle({ name }) {
     const [selectedButtonName, setSelectedButtonName] = useState('');
     const location = useLocation();
     const scrollContainerRef = useRef(null);
+
+    const [ selected, setSelected ] = useState("");
+    
+
+    const handleItemClick = (itemId) => ({
+        getItemById,
+        scrollToItem
+    }) => {
+        setSelected(selected !== itemId ? itemId : "");
+        scrollToItem(getItemById(itemId), "smooth", "center", "nearest");
+    };
+
+
 
     const buttons = [
         'IT',
@@ -36,11 +53,12 @@ function FeedTitle({ name }) {
 
     const handleButtonClick = (buttonName, index) => {
         setSelectedButtonName(buttonName);
+        handleScroll(index * 120);
         const buttonRoutes = { 'IT': '/it', '카페': '/cafe', '일상': '/daily' };
         if (buttonRoutes[buttonName]) {
             window.location.href = buttonRoutes[buttonName];
         }
-    }
+    };
 
     const handleScroll = (scrollAmount) => {
         const container = scrollContainerRef.current;
@@ -53,21 +71,30 @@ function FeedTitle({ name }) {
         <div css={S.SLayout}>
             <div css={S.SScrollButtonContainer}>
                 <div css={S.SButtonLayout}>
-                    <div css={S.SButtonBox}>
-                        <button css={S.SScrollButton} onClick={() => handleScroll(-420)}> ⟨ </button>
-                        <div css={S.SScrollableButtons} ref={scrollContainerRef}>
-                            {buttons.map((buttonName, index) => (
-                                <button
-                                    key={index}
-                                    css={[S.SButton, selectedButtonName === buttonName && S.SSelectedButton]}
-                                    onClick={() => handleButtonClick(buttonName, index)}
-                                >
-                                    {buttonName}
-                                </button>
-                            ))}
-                        </div>
-                        <button css={S.SScrollButton} onClick={() => handleScroll(420)}> ⟩ </button>
-                    </div>
+                    <ScrollMenu
+                        LeftArrow={LeftArrow}
+                        RightArrow={RightArrow}
+                        onMouseUp={({
+                            getItemById,
+                            scrollToItem,
+                            visibleItems
+                        }) => () => {
+                            const { center } = getItemsPos(visibleItems);
+                            scrollToItem(getItemById(center), "smooth", "center");
+                        }}
+                        options={{ throttle: 0 }}
+                    >
+                        {buttons.map((buttonName, index) => (
+                            <Card
+                                key={index}
+                                itemId={index}
+                                selected={selected}
+                                onClick={handleItemClick(index)}
+                            >
+                                {buttonName}
+                            </Card>
+                        ))}
+                    </ScrollMenu>
                 </div>
             </div>
         </div>
