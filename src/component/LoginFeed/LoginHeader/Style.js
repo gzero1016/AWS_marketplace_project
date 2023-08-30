@@ -50,9 +50,13 @@ export const SLanguageList = css`
         font-weight: 500;
         white-space: nowrap;
         cursor: pointer;
+        :hover {
+            font-weight: 700;
+        }
     }
 `;
 
 export const SLanguageListLi = css`
     padding-top: 14px;
+    
 `;

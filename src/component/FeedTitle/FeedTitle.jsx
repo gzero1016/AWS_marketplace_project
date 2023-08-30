@@ -36,7 +36,6 @@ function FeedTitle({ name }) {
 
     const handleButtonClick = (buttonName, index) => {
         setSelectedButtonName(buttonName);
-        handleScroll(index * 120);
         const buttonRoutes = { 'IT': '/it', '카페': '/cafe', '일상': '/daily' };
         if (buttonRoutes[buttonName]) {
             window.location.href = buttonRoutes[buttonName];

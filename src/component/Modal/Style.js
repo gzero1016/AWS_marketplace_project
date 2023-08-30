@@ -42,7 +42,9 @@ export const SModalBottom = css`
     bottom: 0px;
     width: 100%;
     height: 53px;
-    `;
+    cursor: pointer;
+
+`;
 
 export const SModalButton = css`
     border: none;
@@ -51,4 +53,7 @@ export const SModalButton = css`
     font-size: 16px;
     font-weight: 400;
     cursor: pointer;
+    :hover {
+        font-weight: 900;
+    }
 `;

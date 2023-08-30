@@ -292,6 +292,12 @@ export const SListTop = css`
     width: 165px;
     height: 56px;
     border-bottom: 1px solid rgba(18, 28, 70, 0.08);
+    
+    :hover {
+        border-top-right-radius: 18px;
+        border-top-left-radius: 18px;
+        background-color: rgba(18, 28, 70, 0.08);
+    }
 `;
 
 export const SListBottom = css`
@@ -301,6 +307,11 @@ export const SListBottom = css`
     padding-left: 17px;
     width: 165px;
     height: 56px;
+    :hover {
+        border-bottom-right-radius: 18px;
+        border-bottom-left-radius: 18px;
+        background-color: rgba(18, 28, 70, 0.08);
+    }
 `;
 
 export const SListIcon1 = css`
