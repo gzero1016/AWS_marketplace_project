@@ -69,8 +69,3 @@ function FeedTitle({ name }) {
 }
 
 export default FeedTitle;
-
-
-
-
-

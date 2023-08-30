@@ -14,8 +14,9 @@ export const SMainLayout = css`
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 66px;
     background-color: rgb(248, 250, 251);
-    `;
+`;
 
 export const SFeedContainer = css`
     padding: 0px 20px;

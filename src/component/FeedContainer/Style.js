@@ -246,3 +246,57 @@ export const SSaveBox = css`
 export const SSaveIcon = css`
     color: rgb(184, 184, 184);
 `;
+
+export const SList = css`
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    border: 1px solid rgb(214, 214, 216);
+    border-radius: 18px;
+    box-shadow: rgba(18, 28, 70, 0.08) 2px 2px 8px 0px;
+    background-color: white;
+    z-index: 210;
+    
+    & li {
+        color: rgb(51, 51, 51);
+        line-height: 16px;
+        font-size: 16px;
+        font-weight: 400;
+        white-space: nowrap;
+        letter-spacing: -0.3px;
+        cursor: pointer;
+    }
+`;
+
+export const SListTop = css`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 17px;
+    width: 165px;
+    height: 56px;
+    border-bottom: 1px solid rgba(18, 28, 70, 0.08);
+`;
+
+export const SListBottom = css`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 17px;
+    width: 165px;
+    height: 56px;
+`;
+
+export const SListIcon1 = css`
+    position: absolute;
+    right: 15px;
+    top: 16px;
+    font-size: 20px;
+`;
+
+export const SListIcon2 = css`
+    position: absolute;
+    right: 15px;
+    botoom: 16px;
+    font-size: 20px;
+`;

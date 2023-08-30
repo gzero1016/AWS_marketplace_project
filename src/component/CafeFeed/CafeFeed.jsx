@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import * as S from "../HiddenFeed/Style";
 import { CiMenuKebab } from 'react-icons/ci';
 import { IoLocation } from 'react-icons/io5';
 import { PiSmileyLight } from 'react-icons/pi';
 import { AiOutlineStar } from 'react-icons/ai';
-
+import { AiOutlineAlert } from 'react-icons/ai';
+import { MdOutlineBlock } from 'react-icons/md';
 
 function CafeFeed(props) {
+    const [showLanguageList, setShowLanguageList] = useState(false);
+
+    const toggleReportList = () => {
+        setShowLanguageList(!showLanguageList);
+    };
+
+    const loginFeed = () => {
+        window.location.href = '/login';
+    };
 
     return (
         <div css={S.SLayout}>
@@ -21,16 +31,30 @@ function CafeFeed(props) {
                         </div>
                     </div>
                     <div css={S.SSubBox}>
-                        <button css={S.SFollow}>팔로우</button>
+                        <button css={S.SFollow} onClick={loginFeed}>팔로우</button>
                         <button css={S.SIconBox}>
-                            <CiMenuKebab css={S.SIcon} />
+                            <CiMenuKebab css={S.SIcon} onClick={toggleReportList}/>
+                            {showLanguageList && (
+                                <ul css={S.SList}>
+                                    <div css={S.SListTop}>
+                                        <li>리뷰/리뷰어 신고</li>
+                                        <AiOutlineAlert css={S.SListIcon1}/>
+                                    </div>
+                                    <div css={S.SListBottom}>
+                                        <li>리뷰어 차단</li>
+                                        <MdOutlineBlock css={S.SListIcon2}/>
+                                    </div>
+                                </ul>
+                            )}
                         </button>
                     </div>
                 </div>
                 <div css={S.SImgConatiner}>
-                    <img css={S.SImg1} src="\Imgs\케이크1.jpeg" alt=""/>
-                    <img css={S.SImg2} src="\Imgs\케이크2.jpeg" alt=""/>
-                    <img css={S.SImg3} src="\Imgs\케이크3.jpeg" alt=""/>
+                    <div css={S.SImgBox}>
+                        <img css={S.SImg1} src="\Imgs\케이크1.jpeg" alt=""/>
+                        <img css={S.SImg2} src="\Imgs\케이크2.jpeg" alt=""/>
+                        <img css={S.SImg3} src="\Imgs\케이크3.jpeg" alt=""/>
+                    </div>
                     <div css={S.SLocationBox}>
                         <IoLocation css={S.SLocationIcon}/>
                         <p css={S.SLocationText}>제주시 이도이동 최신</p>

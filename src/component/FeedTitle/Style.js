@@ -67,3 +67,20 @@ export const SSelectedButton = css`
     background-color: rgb(66, 66, 66);;
     color: rgb(255, 255, 255);
 `;
+
+export const SButtonDescription = css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: center;
+    }
+`;

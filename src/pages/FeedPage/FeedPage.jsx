@@ -15,6 +15,7 @@ function FeedPage(props) {
       <FeedTitle />
       <FeedContainer />
       <CafeFeed />
+      <HiddenFeed />
       <Bottom />
     </>
   );

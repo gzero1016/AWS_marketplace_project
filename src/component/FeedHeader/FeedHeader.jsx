@@ -11,6 +11,7 @@ function FeedHeader(props) {
 
         if (buttonName === '+ 관심지역') {
             alert("네이버 로그인 하신 후 이용해 주시기 바랍니다.");
+            window.location.href = '/login'; 
         }
     };
 
