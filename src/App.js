@@ -14,9 +14,10 @@ import CafePage from "./pages/CafePage/CafePage";
 import DailyPage from "./pages/DailyPage/DailyPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import TitlePage from "./pages/TitlePage/TitlePage";
+import JoinMembership from "./component/JoinMembership/JoinMembership";
 
 function App() {
-
+  
   // 패스워드 초기값 , 버튼누른거 기준으로 스크롤 가운데로
   return (
     <>
@@ -45,6 +46,7 @@ function App() {
         <Route path="/cafe" element={<CafePage />} />
         <Route path="/daily" element={<DailyPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/joinMembership" element={<JoinMembership />} />
       </Routes>
     </>
   );
