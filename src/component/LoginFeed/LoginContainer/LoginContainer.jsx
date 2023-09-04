@@ -4,10 +4,12 @@ import * as S from "./Style";
 import { AiOutlineDown } from 'react-icons/ai';
 import { AiOutlineUser } from 'react-icons/ai';
 import { AiOutlineLock } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 
 function LoginContainer(props) {
     const [isIdContainerActive, setIdContainerActive] = useState(false);
     const [isPwContainerActive, setIsPwContainerActive] = useState(false);
+    const navigate = useNavigate();
 
     const handleInputFocus = (type) => {
         if (type === 'id') {
@@ -23,6 +25,10 @@ function LoginContainer(props) {
         }else if (type === 'password') {
             setIsPwContainerActive(false);
         }
+    };
+
+    const handleChagePage = () => {
+        navigate('/agreeing');
     };
 
     return (
@@ -63,7 +69,7 @@ function LoginContainer(props) {
                 <div css={S.SBottom}>
                     <div css={S.SFText}>아이디 찾기</div>
                     <div css={S.STText}>비밀번호 찾기</div>
-                    <div css={S.STText}>회원가입</div>
+                    <div css={S.STText} onClick={handleChagePage}>회원가입</div>
                 </div>
                 <div css={S.SLast}>
                     <img css={S.SNaverImg} src="/Imgs/naver.png" alt="" />

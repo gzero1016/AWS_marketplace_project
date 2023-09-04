@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import * as S from "./Style";
+import axios from 'axios';
 import { Global, css } from '@emotion/react';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 function JoinMembership(props) {
 
     const [ isButtonFocused, setIsButtonFocused ] = useState(false);
-    const [ isIdContainerActive, setIdContainerActive ] = useState(false);
+    const [ isIdConxxtainerActive, setIdContainerActive ] = useState(false);
     const [ isPwContainerActive, setIsPwContainerActive ] = useState(false);
     const [ isEmailContainerActive, setIsEmailContainerActive ] = useState(false);
     const [ isNameContainerActive, setIsNameContainerActive ] = useState(false);
@@ -17,6 +19,50 @@ function JoinMembership(props) {
     const [ isWomanActive, setIsWomanActive ] = useState(false);
     const [ isLocalActive, setIsLocalActive ] = useState(true);
     const [ isForeignerActive, setIsForeignerActive ] = useState(false);
+
+    const navigate = useNavigate(); // 라우트이동하는 함수
+
+    const [ signupUser, setSignupUser ] = useState({
+        id: "",
+        password: "",
+        email: "",
+        name: "",
+        cellphone: ""
+    });
+
+    const handleInputChange = (e) => {
+        setSignupUser({
+            ...signupUser,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleSubmitClick = () => {
+        const option = {
+            params: {
+                username: signupUser.id,
+                password: signupUser.password,
+                email: signupUser.email,
+                name: signupUser.name,
+                cellphone: signupUser.cellphone
+            }
+        }
+
+        // axios의 좋은점은 해당 객체를 자동으로 JSON으로 변경해준다.
+        // 클라이언트가 서버한테 넘겨주는 요청값
+        axios.get("http://localhost:8080/naver_place/auth/signup/duplicate/username", option)
+        // 서버가 클라이언트에게 넘겨주는 응답
+        .then((response) => {
+            // 중복확인 후 중복이 아닐경우 회원가입
+            axios.post("http://localhost:8080/naver_place/auth/signup", signupUser)
+            .then((response) => {
+                alert(response.data);   // 응답
+                navigate("/login");    // 이동하고자하는 경로
+            })
+        }).catch((error) => {
+            alert("중복된 아이디입니다.");  // 중복응답
+        })
+    }
 
     const handleButtonClick = () => {
         setIsButtonFocused(!isButtonFocused);
@@ -106,15 +152,17 @@ function JoinMembership(props) {
                     <input type="checkbox" checked={true} />
                 </div>
                 <div css={S.STopJoin}>
-                    <div css={[S.SFirstBox, isIdContainerActive && S.SIdactive]}>
+                    <div css={[S.SFirstBox, isIdConxxtainerActive && S.SIdactive]}>
                         <div></div>
-                        <input type="text" placeholder="아이디" onFocus={() => handleInputFocus('id')} onBlur={() => handleInputBlur('id')} />
+                        <input type="text" placeholder="아이디" name='id' id='id'
+                        onFocus={() => handleInputFocus('id')} onBlur={() => handleInputBlur('id')} onChange={handleInputChange} />
                         <p>@naver.com</p>
                     </div>
                     <div css={[S.SSecondBox, isPwContainerActive && S.SPwactive]}>
                         <div></div>
                         <input type={isPasswordVisible ? 'text' : 'password'}
-                            placeholder="비밀번호" onFocus={() => handleInputFocus('password')} onBlur={() => handleInputBlur('password')} />
+                            placeholder="비밀번호" name='password'
+                            onFocus={() => handleInputFocus('password')} onBlur={() => handleInputBlur('password')} onChange={handleInputChange} />
                         <button
                             css={isButtonFocused ? S.SButtonFocus : S.SButton}
                             onClick={handleButtonClick}>
@@ -122,17 +170,20 @@ function JoinMembership(props) {
                     </div>
                     <div css={[S.SThirdBox, isEmailContainerActive && S.SEmailactive]}>
                         <div></div>
-                        <input type="text" placeholder='[선택] 비밀번호 분실 시 확인용 이메일' onFocus={() => handleInputFocus('email')} onBlur={() => handleInputBlur('email')}/>
+                        <input type="text" placeholder='[선택] 비밀번호 분실 시 확인용 이메일'  name='email'
+                        onFocus={() => handleInputFocus('email')} onBlur={() => handleInputBlur('email')} onChange={handleInputChange} />
                     </div>
                 </div>
                 <div css={S.SBottomContainer}>
                     <div css={[S.SBottomFirstBox, isNameContainerActive && S.SNameactive]}>
                         <div></div>
-                        <input type="text" placeholder="이름" onFocus={() => handleInputFocus('name')} onBlur={() => handleInputBlur('name')} />
+                        <input type="text" placeholder="이름" name='name'
+                        onFocus={() => handleInputFocus('name')} onBlur={() => handleInputBlur('name')} onChange={handleInputChange} />
                     </div>
                     <div css={[S.SBottomSecondBox, isBirthdayContainerActive && S.SBirthdayactive]}>
                         <div></div>
-                        <input type="text" placeholder='생년월일 8자리' onFocus={() => handleInputFocus('birthday')} onBlur={() => handleInputBlur('birthday')} />
+                        <input type="text" placeholder='생년월일 8자리' 
+                        onFocus={() => handleInputFocus('birthday')} onBlur={() => handleInputBlur('birthday')} onChange={handleInputChange} />
                     </div>
                     <div css={S.SBottomThirdBox}>
                         <div css={S.SGender}>
@@ -146,9 +197,11 @@ function JoinMembership(props) {
                     </div>
                     <div css={[S.SBottomFourthBox, isCellPhoneContainerActive && S.SCellPhoneactive]}>
                         <div></div>
-                        <input type="text" placeholder='휴대전화번호'  onFocus={() => handleInputFocus('cellphone')} onBlur={() => handleInputBlur('cellphone')} />
+                        <input type="text" placeholder='휴대전화번호' name='cellphone'
+                        onFocus={() => handleInputFocus('cellphone')} onBlur={() => handleInputBlur('cellphone')} onChange={handleInputChange} />
                     </div>
                 </div>
+                <button onClick={handleSubmitClick}>전송</button>
                 </div>
             </div>
         </div>

@@ -15,10 +15,10 @@ import DailyPage from "./pages/DailyPage/DailyPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import TitlePage from "./pages/TitlePage/TitlePage";
 import JoinMembership from "./component/JoinMembership/JoinMembership";
+import AgreeingPage from "./pages/AgreeingPage/AgreeingPage";
+import SignupPage from "./pages/SignupPage/SignupPage";
 
 function App() {
-  
-  // 패스워드 초기값 , 버튼누른거 기준으로 스크롤 가운데로
   return (
     <>
       <Reset />
@@ -47,6 +47,8 @@ function App() {
         <Route path="/daily" element={<DailyPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/joinMembership" element={<JoinMembership />} />
+        <Route path="/agreeing" element={<AgreeingPage />} />
+        <Route path="/signup" element={<SignupPage />} />
       </Routes>
     </>
   );

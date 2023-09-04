@@ -92,7 +92,6 @@ export const SFirstBox = css`
         outline: none;
         caret-color: white;
         color: white;
-        letter-spacing: -1px;
     }
 
     & div {
