@@ -24,6 +24,7 @@ function JoinMembership(props) {
 
     const [ signupUser, setSignupUser ] = useState({
         id: "",
+        username: "",
         password: "",
         email: "",
         name: "",
@@ -40,28 +41,35 @@ function JoinMembership(props) {
     const handleSubmitClick = () => {
         const option = {
             params: {
-                username: signupUser.id,
+                id: signupUser.id,
+                username: signupUser.username,
                 password: signupUser.password,
                 email: signupUser.email,
                 name: signupUser.name,
                 cellphone: signupUser.cellphone
             }
         }
+        
+        const signup = async () => {
+            let response = await axios.get("http://localhost:8080/naver_place/auth/signup/duplicate/username", option);
+            if(response.data) {
+                alert("중복된 아이디입니다.");
+                return;
+            }
 
-        // axios의 좋은점은 해당 객체를 자동으로 JSON으로 변경해준다.
-        // 클라이언트가 서버한테 넘겨주는 요청값
-        axios.get("http://localhost:8080/naver_place/auth/signup/duplicate/username", option)
-        // 서버가 클라이언트에게 넘겨주는 응답
-        .then((response) => {
-            // 중복확인 후 중복이 아닐경우 회원가입
-            axios.post("http://localhost:8080/naver_place/auth/signup", signupUser)
-            .then((response) => {
-                alert(response.data);   // 응답
-                navigate("/login");    // 이동하고자하는 경로
-            })
-        }).catch((error) => {
-            alert("중복된 아이디입니다.");  // 중복응답
-        })
+            try {
+                response = await axios.post("http://localhost:8080/naver_place/auth/signup", signupUser);
+                if(response.data) {
+                    throw new Error(response);
+                }
+                alert("회원가입 성공!");
+                navigate("/login");
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        signup();
     }
 
     const handleButtonClick = () => {
@@ -154,7 +162,7 @@ function JoinMembership(props) {
                 <div css={S.STopJoin}>
                     <div css={[S.SFirstBox, isIdConxxtainerActive && S.SIdactive]}>
                         <div></div>
-                        <input type="text" placeholder="아이디" name='id' id='id'
+                        <input type="text" placeholder="아이디" name='username'
                         onFocus={() => handleInputFocus('id')} onBlur={() => handleInputBlur('id')} onChange={handleInputChange} />
                         <p>@naver.com</p>
                     </div>

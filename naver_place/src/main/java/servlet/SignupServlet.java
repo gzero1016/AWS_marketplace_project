@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import data.UserData;
 import entity.NaverInfo;
 import repository.naverPlaceRepository;
 import utils.JsonParseUtil;
@@ -22,17 +24,20 @@ public class SignupServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, Object> userMap = JsonParseUtil.toMap(request.getInputStream());
 
-
+        List<NaverInfo> userList = UserData.userList;
         NaverInfo naverInfo = NaverInfo.builder()
-                .id((String) userMap.get("id"))
+                .username((String) userMap.get("username"))
                 .password((String) userMap.get("password"))
                 .email((String) userMap.get("email"))
                 .name((String) userMap.get("name"))
                 .cellphone((String) userMap.get("cellphone"))
                 .build();
+        
+		userList.add(naverInfo);
 
-        if (naverPlaceRepository.insertNaverInfo(naverInfo)) {
-        	ResponseUtil.response(response).of(200).body("회원가입 완료!!");
+        
+        if (naverPlaceRepository.getInstance().insertNaverInfo(naverInfo)) {
+        	ResponseUtil.response(response).of(201).body(true);
         }
     }
 }

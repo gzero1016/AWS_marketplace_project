@@ -45,11 +45,12 @@ public class naverPlaceRepository {
 			
 			while(rs.next()) {
 				NaverInfo naverInfo = NaverInfo.builder()
-						.id(rs.getString(1))
-						.password(rs.getString(2))
-						.email(rs.getString(3))
-						.name(rs.getString(4))
-						.cellphone(rs.getString(5))
+						.id(rs.getInt(1))
+						.username(rs.getString(2))
+						.password(rs.getString(3))
+						.email(rs.getString(4))
+						.name(rs.getString(5))
+						.cellphone(rs.getString(6))
 						.build();
 				
 				naverInfoList.add(naverInfo);
@@ -64,16 +65,16 @@ public class naverPlaceRepository {
         return naverInfoList;
     }
 	
-	public static boolean insertNaverInfo(NaverInfo naverInfo) {
+	public boolean insertNaverInfo(NaverInfo naverInfo) {
 	    Connection con = null;
 	    PreparedStatement pstmt = null;
 
 	    try {
 	        con = pool.getConnection();
-	        String sql = "INSERT INTO naver_place VALUES (?, ?, ?, ?, ?)";
+	        String sql = "INSERT INTO naver_place (username, password, email, name, cellphone) VALUES (?, ?, ?, ?, ?)";
 	        pstmt = con.prepareStatement(sql);
 
-	        pstmt.setString(1, naverInfo.getId());
+	        pstmt.setString(1, naverInfo.getUsername());
 	        pstmt.setString(2, naverInfo.getPassword());
 	        pstmt.setString(3, naverInfo.getEmail());
 	        pstmt.setString(4, naverInfo.getName());
@@ -90,6 +91,6 @@ public class naverPlaceRepository {
 	        pool.freeConnection(con, pstmt);
 	    }
 
-	    return true;
+	    return false;
 	}
 }
