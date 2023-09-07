@@ -90,6 +90,8 @@ export const SIdBox = css`
         color: rgb(48, 48, 56);
         font-weight: 600;
         font-size: 16px;
+    }
+    & input::placeholder {
         opacity: 0.25;
     }
 `;
@@ -134,6 +136,10 @@ export const SPwBox = css`
         color: rgb(48, 48, 56);
         font-weight: 600;
         font-size: 16px;
+        letter-spacing: -5.3px;
+    }
+    & input::placeholder {
+        letter-spacing: 0px;
         opacity: 0.25;
     }
 `;
@@ -189,14 +195,33 @@ export const SStateBox = css`
         background-repeat: no-repeat;
     }
 
-    & p {
+    /* & p {
         padding-left: 6px;
         color: rgb(48, 48, 56);
         font-size: 16px;
         font-weight: 600;
         letter-spacing: -0.6px;
         text-align: center;
-    }
+    } */
+`;
+
+export const SCheckStateBox = css`
+    padding-left: 6px;
+    color: rgb(48, 48, 56);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.6px;
+    text-align: center;
+    opacity: 0.55;
+`;
+
+export const SSelectedCheckBox = css`
+    padding-left: 6px;
+    color: rgb(48, 48, 56);
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.6px;
+    text-align: center;
 `;
 
 export const SImgBox = css`
@@ -243,6 +268,10 @@ export const SFText = css`
     padding-right: 10px;
     letter-spacing: -0.5px;
     font-weight: 600;
+    :hover {
+        font-weight: 700;
+        color: rgb(136, 136, 138);
+    }
 `;
 
 export const STText = css`
@@ -253,6 +282,11 @@ export const STText = css`
     border-radius: 0.5px;
     letter-spacing: -0.5px;
     font-weight: 600;
+
+    :hover {
+        font-weight: 700;
+        color: rgb(136, 136, 138);
+    }
 `;
 
 export const SLast = css`

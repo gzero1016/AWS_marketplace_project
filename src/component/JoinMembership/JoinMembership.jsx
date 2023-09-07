@@ -23,7 +23,6 @@ function JoinMembership(props) {
     const navigate = useNavigate(); // 라우트이동하는 함수
 
     const [ signupUser, setSignupUser ] = useState({
-        id: "",
         username: "",
         password: "",
         email: "",
@@ -41,7 +40,6 @@ function JoinMembership(props) {
     const handleSubmitClick = () => {
         const option = {
             params: {
-                id: signupUser.id,
                 username: signupUser.username,
                 password: signupUser.password,
                 email: signupUser.email,
@@ -57,9 +55,10 @@ function JoinMembership(props) {
                 return;
             }
 
+            console.log("gdgd");
             try {
                 response = await axios.post("http://localhost:8080/naver_place/auth/signup", signupUser);
-                if(response.data) {
+                if(!response.data) {
                     throw new Error(response);
                 }
                 alert("회원가입 성공!");
@@ -79,7 +78,7 @@ function JoinMembership(props) {
 
     const handleInputFocus = (type) => {
         switch (type) {
-            case 'id':
+            case 'username':
                 setIdContainerActive(true);
                 break;
             case 'password':
@@ -104,7 +103,7 @@ function JoinMembership(props) {
 
     const handleInputBlur = (type) => {
         switch (type) {
-            case 'id':
+            case 'username':
                 setIdContainerActive(false);
                 break;
             case 'password':
@@ -163,7 +162,7 @@ function JoinMembership(props) {
                     <div css={[S.SFirstBox, isIdConxxtainerActive && S.SIdactive]}>
                         <div></div>
                         <input type="text" placeholder="아이디" name='username'
-                        onFocus={() => handleInputFocus('id')} onBlur={() => handleInputBlur('id')} onChange={handleInputChange} />
+                        onFocus={() => handleInputFocus('username')} onBlur={() => handleInputBlur('username')} onChange={handleInputChange} />
                         <p>@naver.com</p>
                     </div>
                     <div css={[S.SSecondBox, isPwContainerActive && S.SPwactive]}>

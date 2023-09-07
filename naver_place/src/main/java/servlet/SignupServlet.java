@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import data.UserData;
 import entity.NaverInfo;
 import repository.naverPlaceRepository;
 import utils.JsonParseUtil;
@@ -24,7 +23,6 @@ public class SignupServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, Object> userMap = JsonParseUtil.toMap(request.getInputStream());
 
-        List<NaverInfo> userList = UserData.userList;
         NaverInfo naverInfo = NaverInfo.builder()
                 .username((String) userMap.get("username"))
                 .password((String) userMap.get("password"))
@@ -32,9 +30,6 @@ public class SignupServlet extends HttpServlet {
                 .name((String) userMap.get("name"))
                 .cellphone((String) userMap.get("cellphone"))
                 .build();
-        
-		userList.add(naverInfo);
-
         
         if (naverPlaceRepository.getInstance().insertNaverInfo(naverInfo)) {
         	ResponseUtil.response(response).of(201).body(true);

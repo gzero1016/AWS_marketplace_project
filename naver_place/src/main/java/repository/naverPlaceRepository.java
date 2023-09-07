@@ -3,11 +3,13 @@ package repository;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import database.DBConnectionMgr;
 import entity.NaverInfo;
+import entity.UsernameDuplicate;
 
 public class naverPlaceRepository {
 
@@ -26,49 +28,12 @@ public class naverPlaceRepository {
 		return instance;
 	}
 	
-	public List<NaverInfo> getNaverInfoListAll() {
-		
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		List<NaverInfo> naverInfoList = null;
-		
-		try {
-			con = pool.getConnection();
-			String sql = "select * from naver_place";
-			
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			naverInfoList = new ArrayList<>();
-			
-			while(rs.next()) {
-				NaverInfo naverInfo = NaverInfo.builder()
-						.id(rs.getInt(1))
-						.username(rs.getString(2))
-						.password(rs.getString(3))
-						.email(rs.getString(4))
-						.name(rs.getString(5))
-						.cellphone(rs.getString(6))
-						.build();
-				
-				naverInfoList.add(naverInfo);
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			pool.freeConnection(con, pstmt, rs);
-		}
-		
-        return naverInfoList;
-    }
+	
 	
 	public boolean insertNaverInfo(NaverInfo naverInfo) {
 	    Connection con = null;
 	    PreparedStatement pstmt = null;
-
+	    
 	    try {
 	        con = pool.getConnection();
 	        String sql = "INSERT INTO naver_place (username, password, email, name, cellphone) VALUES (?, ?, ?, ?, ?)";
@@ -85,6 +50,7 @@ public class naverPlaceRepository {
 	        if (result == 1) {
 	            return true;
 	        }
+	        
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    } finally {
@@ -93,4 +59,65 @@ public class naverPlaceRepository {
 
 	    return false;
 	}
+	
+	
+	public Boolean PwIdcomparison(String username, String password) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			con = pool.getConnection();
+			String sql = "select username, password from naver_place where username = ? and password = ?";
+			
+			pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, username);
+	        pstmt.setString(2, password);
+	        rs = pstmt.executeQuery();
+
+	        if(rs.next()) {
+	        	return true;
+	        }
+	        
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		
+        return false;
+    }
+	
+	
+	public UsernameDuplicate UsernameDuplicate (String username) {
+	    Connection con = null;
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    UsernameDuplicate usernameDuplicate = null;
+
+		try {
+			con = pool.getConnection();
+	        String sql = "select username from naver_place where username = ?";
+	       
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, username);
+	        rs = pstmt.executeQuery();
+			
+	        if(rs.next()) {
+	        	usernameDuplicate = UsernameDuplicate.builder()
+	        			.username(rs.getString(1))
+	        			.build();
+	        }
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}	
+	
+		return usernameDuplicate;
+	}
+	
+	
 }

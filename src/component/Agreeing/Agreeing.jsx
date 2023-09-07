@@ -1,18 +1,59 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 /** @jsxImportSource @emotion/react */
 import * as S from "./Style";
+import { useNavigate } from 'react-router-dom';
 
 function Agreeing(props) {
     const [ selectAllChecked, setSelectAllChecked ] = useState(false);
-    const [ selectChecked, setSelectChecked ] = useState(false);
+    const [ individualCheckboxes, setIndividualCheckboxes ] = useState({
+        naverTerms: false,
+        privacyPolicy: false,
+        realNameAuthentication: false,
+        locationServices: false,
+        eventInfo: false,
+    });
+    const navigate = useNavigate();
+    const [ selectedBt, setSelecteBt ] = useState(false);
+
+    useEffect(() => {
+        if (individualCheckboxes.naverTerms && individualCheckboxes.privacyPolicy) {
+            setSelecteBt(true);
+        } else {
+            setSelecteBt(false);
+        }
+        }, [individualCheckboxes.naverTerms, individualCheckboxes.privacyPolicy]);
+
+        console.log("selectedBt:", selectedBt);
+
+    useEffect(() => {
+        const areAllChecked = Object.values(individualCheckboxes).every(checked => checked);
+        setSelectAllChecked(areAllChecked);
+    }, [individualCheckboxes]);
 
     const handleOnClickAllChange = () => {
-        setSelectAllChecked(!selectAllChecked);
+        const updatedSelectAllChecked = !selectAllChecked;
+        setSelectAllChecked(updatedSelectAllChecked);
+
+        const updatedIndividualCheckboxes = {};
+        for (const key in individualCheckboxes) {
+            updatedIndividualCheckboxes[key] = updatedSelectAllChecked;
+        }
+        setIndividualCheckboxes(updatedIndividualCheckboxes);
     };
 
-    const handleOnClickChange = (e) => {
-        setSelectChecked(true);
+    const handleOnClickChange = (checkboxName) => {
+        setIndividualCheckboxes((prevCheckboxes) => ({
+            ...prevCheckboxes,
+            [checkboxName]: !prevCheckboxes[checkboxName],
+        }));
     };
+
+
+    const handleChagePage = () => {
+        if (selectedBt) {
+            navigate("/joinMembership");
+        }
+    }
 
     return (
         <div css={S.SLayout}>
@@ -26,7 +67,8 @@ function Agreeing(props) {
                 </div>
                 <ul css={S.SConsent}>
                     <li css={S.SCheckBox}>
-                        <input type="checkbox" checked={selectAllChecked} onChange={handleOnClickChange}/>
+                        <input type="checkbox" name='naverTerms'
+                                checked={individualCheckboxes.naverTerms} onChange={() => handleOnClickChange("naverTerms")}/>
                         <span css={S.SEssential}>[필수]</span>
                         <span css={S.STitleText}>네이버 이용약관</span>
                         <span css={S.SWhole}>전체 ⟩</span>
@@ -47,7 +89,8 @@ function Agreeing(props) {
                 </ul>
                 <ul css={S.SConsent}>
                     <li css={S.SCheckBox}>
-                        <input type="checkbox" checked={selectAllChecked} onChange={handleOnClickChange}/>
+                        <input type="checkbox" name='privacyPolicy'
+                                checked={individualCheckboxes.privacyPolicy} onChange={() => handleOnClickChange("privacyPolicy")}/>
                         <span css={S.SEssential}>[필수]</span>
                         <span css={S.STitleText}>개인정보 수집 및 이용</span>
                         <span css={S.SWhole}>전체 ⟩</span>
@@ -64,7 +107,8 @@ function Agreeing(props) {
                 </ul>
                 <ul css={S.SConsent}>
                     <li css={S.SCheckBox}>
-                        <input type="checkbox" checked={selectAllChecked} onChange={handleOnClickChange}/>
+                        <input type="checkbox"
+                                checked={individualCheckboxes.realNameAuthentication} onChange={() => handleOnClickChange("realNameAuthentication")}/>
                         <span css={S.SSelect}>[선택]</span>
                         <span css={S.STitleText}>실명 인증된 아이디로 가입</span>
                     </li>
@@ -76,7 +120,8 @@ function Agreeing(props) {
                 </ul>
                 <ul css={S.SConsent}>
                     <li css={S.SCheckBox}>
-                        <input type="checkbox" checked={selectAllChecked} onChange={handleOnClickChange}/>
+                        <input type="checkbox"
+                                checked={individualCheckboxes.locationServices} onChange={() => handleOnClickChange("locationServices")}/>
                         <span css={S.SSelect}>[선택]</span>
                         <span css={S.STitleText}>위치기반서비스 이용약관</span>
                         <span css={S.SWhole}>전체 ⟩</span>
@@ -93,7 +138,8 @@ function Agreeing(props) {
                 </ul>
                 <ul css={S.SConsent}>
                     <li css={S.SCheckBox}>
-                        <input type="checkbox" checked={selectAllChecked} onChange={handleOnClickChange}/>
+                        <input type="checkbox"
+                                checked={individualCheckboxes.eventInfo} onChange={() => handleOnClickChange("eventInfo")}/>
                         <span css={S.SSelect}>[선택]</span>
                         <span css={S.STitleText}>이벤트・혜택 정보 수신</span>
                     </li>
@@ -110,6 +156,9 @@ function Agreeing(props) {
                     <span css={S.SSpecialSignup}>단체, 비즈니스 회원 가입</span>
                     <button css={S.SSpecialButton}>⟩</button>
                 </div>
+            </div>
+            <div css={S.SBottomFixed}>
+                <button css={selectedBt ? S.SSelectNextBt : S.SNextButton} onClick={handleChagePage}>다음</button>
             </div>
         </div>
     );

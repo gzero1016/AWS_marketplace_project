@@ -5,11 +5,40 @@ import { AiOutlineDown } from 'react-icons/ai';
 import { AiOutlineUser } from 'react-icons/ai';
 import { AiOutlineLock } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function LoginContainer(props) {
-    const [isIdContainerActive, setIdContainerActive] = useState(false);
-    const [isPwContainerActive, setIsPwContainerActive] = useState(false);
+    const [ isIdContainerActive, setIdContainerActive ] = useState(false);
+    const [ isPwContainerActive, setIsPwContainerActive ] = useState(false);
+    const [ isChecked, setIsChecked ] = useState(false);
     const navigate = useNavigate();
+    const [ signinInput, setSigninInput ] = useState({
+        username: "",
+        password: ""
+    });
+    
+    const handleInputChage = (e) => {
+        setSigninInput ({
+            ...signinInput,
+            [ e.target.name ]: e.target.value
+        })
+    };
+
+    const handleSigninButton = async() => {
+        try{
+            console.log(signinInput);
+            const response = await axios.post("http://localhost:8080/naver_place/auth/signin", signinInput);
+            console.log(response.data);
+
+            if(!response.data){
+                alert("로그인 실패");
+                return;
+            }
+            alert("환영합니다.");
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const handleInputFocus = (type) => {
         if (type === 'id') {
@@ -31,6 +60,10 @@ function LoginContainer(props) {
         navigate('/agreeing');
     };
 
+    const handleCheckClick = () => {
+        setIsChecked(!isChecked);
+    };
+
     return (
         <div css={S.SLayout}>
             <div css={S.SNaverLogoBox}>
@@ -47,20 +80,22 @@ function LoginContainer(props) {
                     <div css={[S.SIdContainer, isIdContainerActive && S.SIdactive]}>
                         <AiOutlineUser css={S.SIdIcon} />
                         <div css={S.SIdBox}>
-                            <input type="text" placeholder="아이디" onFocus={() => handleInputFocus('id')} onBlur={() => handleInputBlur('id')} />
+                            <input type="text" placeholder="아이디" name='username'
+                            onFocus={() => handleInputFocus('id')} onBlur={() => handleInputBlur('id')} onChange={handleInputChage} />
                         </div>
                     </div>
                     <div css={[S.SPwContainer, isPwContainerActive && S.SPwactive]}>
                         <div css={S.SPwBox}>
                             <AiOutlineLock css={S.SPwIcon}/>
-                            <input type="password" placeholder="비밀번호" onFocus={() => handleInputFocus('password')} onBlur={() => handleInputBlur('password')} />
+                            <input type="password" placeholder="비밀번호" name='password'
+                            onFocus={() => handleInputFocus('password')} onBlur={() => handleInputBlur('password')} onChange={handleInputChage}/>
                         </div>
                     </div>
                 </div>
-                <button css={S.SLoginButton}>로그인</button>
+                <button css={S.SLoginButton} onClick={handleSigninButton}>로그인</button>
                 <div css={S.SStateBox}>
-                    <input type="checkbox" />
-                    <p>로그인 상태 유지</p>
+                    <input type="checkbox" checked={isChecked} onChange={handleCheckClick} />
+                    <p css={[isChecked? S.SSelectedCheckBox : S.SCheckStateBox ]}>로그인 상태 유지</p>
                 </div>
                 <div css={S.SImgBox}>
                     <img css={S.SImg} src="https://ssl.pstatic.net/melona/libs/1378/1378592/d99d2812a2b513e54e2d_20230804143944289.jpg" alt="" />

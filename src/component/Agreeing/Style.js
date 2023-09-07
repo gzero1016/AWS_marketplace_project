@@ -133,7 +133,7 @@ export const SContentTextBox = css`
     border: 1px solid #6c6c6e;
     border-radius: 6px;
     padding: 15px;
-    height: 100px;
+    height: 68px;
     font-size: 14px;
     font-weight: 600;
     line-height: 18px;
@@ -157,7 +157,7 @@ export const SContentTextNotScrollBox = css`
     border: 1px solid #6c6c6e;
     border-radius: 6px;
     padding: 15px;
-    height: 68px;
+    height: 36px;
     font-size: 14px;
     font-weight: 600;
     line-height: 18px;
@@ -207,5 +207,38 @@ export const SSpecialButton = css`
     font-size: 15px;
     color: #03c75a;
     background-color: transparent;
+    cursor: pointer;
+`;
+
+export const SBottomFixed = css`
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: -1px;
+    background-color: #39393c;
+    z-index: 100;
+    transition: all 0.3s ease;
+`;
+
+export const SNextButton = css`
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    width: 460px;
+    height: 52px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #8990a0;
+    cursor: pointer;
+`;
+
+export const SSelectNextBt = css`
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    width: 460px;
+    height: 52px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #03c75a;
     cursor: pointer;
 `;
