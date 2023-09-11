@@ -4,7 +4,9 @@ import * as S from "./Style";
 import { useNavigate } from 'react-router-dom';
 
 function Agreeing(props) {
+    const navigate = useNavigate();
     const [ selectAllChecked, setSelectAllChecked ] = useState(false);
+    const [ selectedBt, setSelecteBt ] = useState(false);
     const [ individualCheckboxes, setIndividualCheckboxes ] = useState({
         naverTerms: false,
         privacyPolicy: false,
@@ -12,33 +14,8 @@ function Agreeing(props) {
         locationServices: false,
         eventInfo: false,
     });
-    const navigate = useNavigate();
-    const [ selectedBt, setSelecteBt ] = useState(false);
-
-    useEffect(() => {
-        if (individualCheckboxes.naverTerms && individualCheckboxes.privacyPolicy) {
-            setSelecteBt(true);
-        } else {
-            setSelecteBt(false);
-        }
-        }, [individualCheckboxes.naverTerms, individualCheckboxes.privacyPolicy]);
-
-    useEffect(() => {
-        const areAllChecked = Object.values(individualCheckboxes).every(checked => checked);
-        setSelectAllChecked(areAllChecked);
-    }, [individualCheckboxes]);
-
-    const handleOnClickAllChange = () => {
-        const updatedSelectAllChecked = !selectAllChecked;
-        setSelectAllChecked(updatedSelectAllChecked);
-
-        const updatedIndividualCheckboxes = {};
-        for (const key in individualCheckboxes) {
-            updatedIndividualCheckboxes[key] = updatedSelectAllChecked;
-        }
-        setIndividualCheckboxes(updatedIndividualCheckboxes);
-    };
-
+    
+    // 개별 체크박스 확인
     const handleOnClickChange = (checkboxName) => {
         setIndividualCheckboxes((prevCheckboxes) => ({
             ...prevCheckboxes,
@@ -46,7 +23,33 @@ function Agreeing(props) {
         }));
     };
 
+    // 배열로 들고와서 배열안에 모든값이 true인지 확인하는거
+    useEffect(() => {
+        const areAllChecked = Object.values(individualCheckboxes).every(checked => checked);
+        setSelectAllChecked(areAllChecked);
+    }, [individualCheckboxes]);
 
+    // 개별 체크박스가 모두 true일때 전체동의 true 하나라도 false이면 전체동의 false
+    const handleOnClickAllChange = () => {
+        const updatedSelectAllChecked = !selectAllChecked;
+        setSelectAllChecked(updatedSelectAllChecked);
+        
+        const updatedIndividualCheckboxes = {};
+        for (const key in individualCheckboxes) {
+            updatedIndividualCheckboxes[key] = updatedSelectAllChecked;
+        }
+        setIndividualCheckboxes(updatedIndividualCheckboxes);
+    };
+    
+    // 필수 체크박스가 둘다 true 일때는 버튼활성화
+    useEffect(() => {
+        if (individualCheckboxes.naverTerms && individualCheckboxes.privacyPolicy) {
+            setSelecteBt(true);
+        } else {
+            setSelecteBt(false);
+        }
+        }, [individualCheckboxes.naverTerms, individualCheckboxes.privacyPolicy]);
+    
     const handleChagePage = () => {
         if (selectedBt) {
             navigate("/signup");

@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import entity.LoginUser;
+import com.google.gson.Gson;
+
 import entity.NaverInfo;
 import repository.naverPlaceRepository;
 import utils.JsonParseUtil;
@@ -26,27 +27,14 @@ public class signinServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map<String, Object> signinUser = JsonParseUtil.toMap(request.getInputStream());
 		
-		LoginUser loginUser = LoginUser.builder()
-				.username((String) signinUser.get("username"))
-				.password((String) signinUser.get("password"))
-				.build();
+		String username = (String) signinUser.get("username");
+		String password = (String) signinUser.get("password");
 		
-		if(naverPlaceRepository.getInstance().PwIdcomparison(loginUser)) {
+		if(naverPlaceRepository.getInstance().PwIdcomparison(username, password)) {
 			ResponseUtil.response(response).of(200).body(true);
 			return;
 		}
 		ResponseUtil.response(response).of(200).body(false);
-		
-		
-//		위? 아래? 뭐가 더 좋은코드,,?
-//		String username = request.getParameter("username");
-//		String password = request.getParameter("password");
-//		
-//		if(naverPlaceRepository.getInstance().PwIdcomparison(username, password)) {
-//			ResponseUtil.response(response).of(200).body(true);
-//			return;
-//		}
-//		ResponseUtil.response(response).of(200).body(false);
 		
 	}
 	

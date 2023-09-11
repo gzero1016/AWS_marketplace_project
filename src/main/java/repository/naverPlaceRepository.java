@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import database.DBConnectionMgr;
-import entity.LoginUser;
 import entity.NaverInfo;
 
 public class naverPlaceRepository {
@@ -60,8 +59,7 @@ public class naverPlaceRepository {
 	    return false;
 	}
 	
-	
-	public Boolean PwIdcomparison(LoginUser loginUser) {
+	public Boolean PwIdcomparison(String username, String password) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -72,50 +70,22 @@ public class naverPlaceRepository {
 			String sql = "select username, password from naver_place where username = ? and password = ?";
 			
 			pstmt = con.prepareStatement(sql);
-	        pstmt.setString(1, loginUser.getUsername());
-	        pstmt.setString(2, loginUser.getPassword());
-	        rs = pstmt.executeQuery();
-
-	        if(rs.next()) {
-	        	return true;
-	        }
-	        
+			pstmt.setString(1, username);
+			pstmt.setString(2, password);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				return true;
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			pool.freeConnection(con, pstmt, rs);
 		}
 		
-        return false;
-    }
-	
-//	public Boolean PwIdcomparison(String username, String password) {
-//		
-//		Connection con = null;
-//		PreparedStatement pstmt = null;
-//		ResultSet rs = null;
-//		
-//		try {
-//			con = pool.getConnection();
-//			String sql = "select username, password from naver_place where username = ? and password = ?";
-//			
-//			pstmt = con.prepareStatement(sql);
-//			pstmt.setString(1, username);
-//			pstmt.setString(2, password);
-//			rs = pstmt.executeQuery();
-//			
-//			if(rs.next()) {
-//				return true;
-//			}
-//			
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			pool.freeConnection(con, pstmt, rs);
-//		}
-//		
-//		return false;
-//	}
+		return false;
+	}
 	
 	
 	public Boolean UsernameDuplicate (String username) {
